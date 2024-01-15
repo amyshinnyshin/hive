@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Applications</title>
+</head>
+<body>
+    <h1>My Applications</h1>
+    {% for job_application in job_applications %}
+        <p>
+            {{ job_application.title }} at {{ job_application.company_name }}
+        </p>
+    {% endfor %}
+</body>
+</html>

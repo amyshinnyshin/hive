@@ -12,5 +12,12 @@
             {{ job_application.title }} at {{ job_application.company_name }}
         </p>
     {% endfor %}
+
+    <h2>Application Details</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add</button>
+        </form>
 </body>
 </html>

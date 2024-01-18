@@ -1,8 +1,4 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import JobApplication
-
-
-
 from .models import JobApplication, Comment
 from .forms import JobApplicationForm
 

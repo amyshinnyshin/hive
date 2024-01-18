@@ -9,7 +9,7 @@
 
     <h1>My Applications</h1>
     <button>End Job Search</button>
-    <button onclick="location.href='{% url 'add_application' %}'">Add</button>
+    <a href="{% url 'add_application' %}"><button>Add</button></a>
 
     {% for job_application in job_applications %}
     <p>

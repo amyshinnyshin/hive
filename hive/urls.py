@@ -1,7 +1,8 @@
 from django.urls import path
-from . import views
+from .views import application_list, add_application, comment_list
 
 urlpatterns = [
-    path('applications/', views.job_list, name='job_list'),
-    path('applications/<int:job_application_id>/comments/', views.comment_list, name='comment_list'),
+    path('myapplications/', application_list, name='application_list'),
+    path('myapplications/add/', add_application, name='add_application' ),
+    path('myapplications/<int:job_application_id>/comments/', comment_list, name='comment_list')
 ]

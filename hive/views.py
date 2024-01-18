@@ -1,10 +1,29 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
 from .models import JobApplication, Comment
+from .forms import JobApplicationForm
+
 
 # Create your views here.
-def job_list(request): 
+def application_list(request): 
     job_applications = JobApplication.objects.all()
-    return render(request, 'applications.html', {'job_applications': job_applications})
+
+    return render(request, 'applicationlist.html', {'job_applications': job_applications})
+
+
+def add_application(request):
+    if request.method == 'POST':
+        form = JobApplicationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # Redirect to the same form with empty inputs
+            return redirect('job_list')
+        else:
+            print("Form errors:", form.errors)
+    else: 
+        form = JobApplicationForm()
+    
+    return render(request, 'addapplication.html', {'form': form})
 
 
 def comment_list(request, job_application_id):

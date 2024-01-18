@@ -6,12 +6,22 @@
     <title>My Applications</title>
 </head>
 <body>
+
     <h1>My Applications</h1>
-        {% for job_application in job_applications %}
-        <p>
-            {{ job_application.role }} {{ job_application.company_name }}
-        </p>
-        {% endfor %}
+    <button>End Job Search</button>
+    <button onclick="location.href='{% url 'add_application' %}'">Add</button>
+
+    {% for job_application in job_applications %}
+    <p>
+        {{ job_application.role }} {{ job_application.company_name }}
+    </p>
+    <form method="post" action="{% url 'delete_application' job_application.id %}">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+    <a href="{% url 'edit_application' job_application.id %}"><button>Edit</button></a>
+
+    {% endfor %}
 
 </body>
 </html>

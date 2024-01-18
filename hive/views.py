@@ -1,4 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
+from .models import JobApplication
+
+
 
 from .models import JobApplication, Comment
 from .forms import JobApplicationForm
@@ -16,7 +19,7 @@ def add_application(request):
         form = JobApplicationForm(request.POST)
         if form.is_valid():
             form.save()
-            # Redirect to the same form with empty inputs
+
             return redirect('application_list')
         else:
             print("Form errors:", form.errors)
@@ -24,6 +27,34 @@ def add_application(request):
         form = JobApplicationForm()
     
     return render(request, 'addapplication.html', {'form': form})
+
+
+def edit_application(request, job_application_id):
+    job_application = JobApplication.objects.get(id = job_application_id)
+
+    if request.method == 'POST':
+        form = JobApplicationForm(request.POST, instance=job_application)
+        if form.is_valid():
+            form.save()
+            
+            return redirect('application_list')
+    else:
+        form = JobApplicationForm(instance=job_application)
+
+    return render(request, 'editapplication.html', {'form': form, 'job_application': job_application})
+
+
+
+def delete_application(request, job_application_id):
+    job_application = get_object_or_404(JobApplication, id=job_application_id)
+
+    if request.method == 'POST':
+        job_application.delete()
+        return redirect('application_list')
+
+    return render(request, 'applicationlist.html', {'job_applications': JobApplication.objects.all()})
+
+
 
 
 def comment_list(request, job_application_id):

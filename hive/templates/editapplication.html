@@ -1,0 +1,38 @@
+<!-- edit_application.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Application</title>
+</head>
+<body>
+    <h1>Edit {{ form.company_name.value }} Application</h1>
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="{{ form.status.id_for_label }}">Status:</label>
+        {{ form.status }}
+        <br>
+        
+        <label for="{{ form.company_name.id_for_label }}">Company Name:</label>
+        {{ form.company_name }}
+        <br>
+        
+        <label for="{{ form.role.id_for_label }}">Role:</label>
+        {{ form.role }}
+        <br>
+        
+        <label for="{{ form.date_applied.id_for_label }}">Date Applied:</label>
+        {{ form.date_applied }}
+        <br>
+        
+        <label for="{{ form.description.id_for_label }}">Description:</label>
+        {{ form.description }}
+        <br>
+        
+        <button type="submit">Save Changes</button>
+        <a href="{% url 'application_list' %}"><button type="button">Cancel</button></a>
+    </form>
+</body>
+</html>

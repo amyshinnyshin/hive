@@ -17,7 +17,7 @@ def add_application(request):
         if form.is_valid():
             form.save()
             # Redirect to the same form with empty inputs
-            return redirect('job_list')
+            return redirect('application_list')
         else:
             print("Form errors:", form.errors)
     else: 

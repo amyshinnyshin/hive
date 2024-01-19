@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --White: #FFFFFF;
+
+    /* Iron */
+    --Iron-25: #F8F8FB;
+    --Iron-50: #F5F5F9;
+    --Iron-100: #EDEDED;
+    --Iron-200: #DFDFDF;
+    --Iron-300: #D1D1D1;
+    --Iron-400: #ADADAD;
+    --Iron-500: #999999;
+    --Iron-600: #888888;
+    --Iron-700: #7B7B7B;
+    --Iron-800: #676767;
+    --Iron-900: #545454;
+    --Iron-950: #2C2C2C;
+    --Iron-1000: #141414;
+
+    /* Red */
+    --Red-50: #FFF3F0;
+    --Red-100: #FFE3DD;
+    --Red-200: #E3D5FF;
+    --Red-300: #FFA895;
+    --Red-400: #FF7759;
+    --Red-500: #FF4E26;
+    --Red-600: #FC3306;
+    --Red-700: #E62A00;
+    --Red-800: #AF2405;
+    --Red-900: #90240C;
+    --Red-950: #500F00;
+
+    /* Magnolia */
+    --Magnolia-50: #F8F4FF;
+    --Magnolia-100: #F0E8FF;
+    --Magnolia-200: #E3D5FF;
+    --Magnolia-300: #CEB4FE;
+    --Magnolia-400: #B084FC;
+    --Magnolia-500: #9255F7;
+    --Magnolia-600: #7A33EA;
+    --Magnolia-700: #6711D9;
+    --Magnolia-800: #5921A8;
+    --Magnolia-900: #491C87;
+    --Magnolia-950: #2E0764;
+
+}
+
+body {
+    font-family: 'Manrope';
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0px;
+    color: var(--Iron-950);
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+}
+
+h2 {
+    font-size: 28px;
+    line-height: 32px;
+}
+
+h3 {
+    font-size: 24px;
+    line-height: 32px;
+}
+
+h4 {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+h5 {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+h6 {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+p.small {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+label {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+button {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+}
+

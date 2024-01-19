@@ -1,0 +1,56 @@
+@import 'style.css';
+
+body {
+    margin: 0px;
+    background-color: var(--Magnolia-50);
+
+    font-family: 'Manrope';
+    font-weight: 400;
+}
+
+.top-nav-container {
+    position: fixed;
+    top: 0;
+    left: 288px;
+    display: flex;
+    width: calc(100vw - 288px);
+    padding: 20px 24px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    box-sizing: border-box;
+}
+
+.leftsidebar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 288px;
+    height: 100vh;
+    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.page-container {
+    background-color: var(--White);
+    position: fixed;
+    top: 72px;
+    left: 288px;
+    width: calc(100vw - 312px);
+    height: calc(100vh - 96px);
+    padding: 32px;
+    margin: 0px 24px 24px 0px;
+    border: solid 1px var(--Iron-100); 
+    box-sizing: border-box;
+    border-radius: 16px;
+}
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}

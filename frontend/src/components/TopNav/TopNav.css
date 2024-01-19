@@ -1,7 +1,25 @@
 ul.top-nav-group {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
     list-style: none;
-    margin: 0px;
     padding: 0px;
+    margin: 0px;
+}
+
+.top-nav-group div.left-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    align-self: stretch;
+}
+
+.top-nav-group div.right-section {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
 }

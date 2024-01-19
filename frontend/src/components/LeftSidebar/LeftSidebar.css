@@ -1,0 +1,27 @@
+ul.leftsidebar-group {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: flex-start;
+flex: 1 0 0;
+align-self: stretch;
+list-style: none;
+ padding: 0px;
+ margin: 0px;
+}
+
+ul.leftsidebar-group div.top-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    align-self: stretch;
+}
+
+ul.leftsidebar-group div.nav-item-group {
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 12px;
+align-self: stretch;
+}

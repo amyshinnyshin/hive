@@ -5,10 +5,15 @@ import './TopNav.css';
 const TopNav = () => {
   return (
     <ul className='top-nav-group'>
-      <li>Search</li>
-      <li>Alerts</li>
-      <li>Settings</li>
-      <li>Profile</li>
+      <div className='left-section'>
+        <li>Menu</li>
+      </div>
+      <div className='right-section'>
+        <li>Search</li>
+        <li>Alerts</li>
+        <li>Settings</li>
+        <li>Profile</li>
+      </div>
     </ul>
   )
 }

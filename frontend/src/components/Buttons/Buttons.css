@@ -25,6 +25,10 @@ button {
     background-color: var(--Magnolia-700);
 } 
 
+.secondary-btn {
+    background-color: var(--Iron-100);
+}
+
 .outline-btn {
     color: var(--Magnolia-700);
     background-color: transparent;

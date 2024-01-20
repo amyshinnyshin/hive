@@ -1,0 +1,32 @@
+.tile-container {
+    display: flex;
+    height: 160px;
+    padding: 12px;
+    margin-bottom: 8px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid var(--Iron-100);
+    background: var(--White);
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.15);
+}
+
+.tile-container:hover {
+    background: var(--Iron-100);
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.comments-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+}

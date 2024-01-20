@@ -1,106 +1,136 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+import './AddApplication.css';
+import TopNav from '../../components/TopNav/TopNav';
+import LeftSidebar from '../../components/LeftSidebar/LeftSidebar';
+import { DateInput, TextBox, TextInput } from '../../components/InputFields/InputFields';
+import { PrimaryButton, SecondaryButton } from '../../components/Buttons/Buttons';
+
+
 const AddApplication = () => {
-  const [formData, setFormData] = useState({
+    const navigate = useNavigate();
+    
+    const [formData, setFormData] = useState({
     status: '',
     company_name: '',
     role: '',
     date_applied: '',
     description: '',
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
     });
-  };
 
-  const handleSubmit = async (e) => {
+    const handleChange = (e) => {
+    setFormData({
+        ...formData,
+        [e.target.name]: e.target.value,
+    });
+    };
+
+    const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-        axios.post('http://localhost:8000/api/myapplications/', formData, {
-            headers: {
-                'Content-Type': 'application/json',
-            },
+        // Make a POST request to create the application
+        const response = await axios.post('http://localhost:8000/api/myapplications/', formData, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
         });
 
-      console.log('Application added successfully!');
+        // Check if the request was successful
+        if (response.status === 201) {
+        // Redirect to the "My Applications" page
+        navigate('/myapplications');
+        }
     } catch (error) {
-      console.error('Error adding application:', error);
+        console.error('Error creating application:', error);
     }
-  };
+    };
 
-  return (
+    return (
     <div>
-      <h2>Add New Application</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Status:
-          <select
-            name="status"
-            value={formData.status}
-            onChange={handleChange}
-          >
-            <option value="">Select Status</option>
-            <option value="applied">Applied</option>
-            <option value="interviews">Interviews</option>
-            <option value="rejected">Rejected</option>
-            <option value="offered">Offered</option>
-            <option value="deferred">Deferred</option>
-            <option value="selected">Selected</option>
-          </select>
-        </label>
-        <br />
-        <label>
-          Company Name:
-          <input
-            type="text"
-            name="company_name"
-            value={formData.company_name}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          Role:
-          <input
-            type="text"
-            name="role"
-            value={formData.role}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          Date Applied:
-          <input
-            type="date"
-            name="date_applied"
-            value={formData.date_applied}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          Description:
-          <textarea
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <button type="submit">Add Application</button>
-        <Link to={`/myapplications/`}>
-            <button>Cancel</button>
-        </Link>
-      </form>
-    </div>
-  );
-};
+        <div className='top-nav-container'>
+            <TopNav />
+        </div>
 
-export default AddApplication;
+        <div className='leftsidebar-container'>
+          <LeftSidebar />
+        </div>
+
+        <div className='page-container'>
+            <div className='form-page-container'>
+                <div className='breadcrumb'></div>
+                
+
+                <form onSubmit={handleSubmit} className='form-container'>
+                    <div className='form'>
+                        <h2>Add New Application</h2>
+                        <div className='form-group'>
+                        <div className='left-section'>
+                        <div className='container'>
+                            <TextInput
+                                label="Company Name"
+                                type="text"
+                                name="company_name"
+                                value={formData.company_name}
+                                onChange={handleChange}
+                                placeholder="Add company name..."
+                            />
+                            <TextInput
+                                label="Role"
+                                type="text"
+                                name="role"
+                                value={formData.role}
+                                onChange={handleChange}
+                                placeholder="Add role title..."
+                            />
+                            <DateInput
+                                label="Date Applied"
+                                name="date_applied"
+                                value={formData.date_applied}
+                                onChange={handleChange}
+                            />
+                            <TextBox
+                                label="Description"
+                                name="description"
+                                value={formData.description}
+                                onChange={handleChange}
+                                placeholder="Add job description..."
+                            />
+                            </div>
+                        </div>
+                        <div className='right-section'>
+                            <label>
+                            <select
+                                name="status"
+                                value={formData.status}
+                                onChange={handleChange}
+                            >
+                                <option value="">Select Status</option>
+                                <option value="applied">Applied</option>
+                                <option value="interviews">Interviews</option>
+                                <option value="rejected">Rejected</option>
+                                <option value="offered">Offered</option>
+                                <option value="deferred">Deferred</option>
+                                <option value="selected">Selected</option>
+                            </select>
+                            </label>
+                        </div>
+                        </div>
+                    </div>
+                    <div className='btm-button-container'>
+                        <Link to={`/myapplications`} className='no-link-styling'>
+                            <SecondaryButton buttonText="Cancel" />
+                        </Link>
+                        <PrimaryButton type="submit" buttonText="Save Application" />
+                    </div>
+                    </form>
+
+            </div>
+        </div>
+    </div>
+    );
+    };
+
+    export default AddApplication;

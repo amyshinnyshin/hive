@@ -11,7 +11,7 @@ import UpdateApplication from './pages/UpdateApplication/UpdateApplication';
 
 
 // Components
-import TopNav from './components/TopNav/TopNav';
+// import TopNav from './components/TopNav/TopNav';
 
 // CSS
 import './App.css';
@@ -24,17 +24,12 @@ import './style.css';
 const App = () => {
   return (
     <Router> 
-      <div className='App'>
-      <div className=''>
-        <TopNav />
-      </div>
-      <Routes>
-        <Route path="/myapplications" element={<MyApplications />} />
-        <Route path="/myapplications/add" element={<AddApplication />} />
-        <Route path="/myapplications/:id" element={<ApplicationDetails />} />
-        <Route path="/myapplications/:id/edit" element={<UpdateApplication />} />
-      </Routes>
-      </div>
+        <Routes>
+          <Route path="/myapplications" element={<MyApplications />} />
+          <Route path="/myapplications/add" element={<AddApplication />} />
+          <Route path="/myapplications/:id" element={<ApplicationDetails />} />
+          <Route path="/myapplications/:id/edit" element={<UpdateApplication />} />
+        </Routes>
     </Router>
   );
 }

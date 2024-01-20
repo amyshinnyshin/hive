@@ -23,6 +23,20 @@ const SecondaryButton = ({ buttonText, showIcon, icon, onClick }) => {
     );
   };
 
+  
+const TertiaryButton = ({ buttonText, showIcon, icon, onClick }) => {
+    return (
+      <button className="Tertiary-btn" onClick={onClick}>
+         {showIcon && <img src={icon} alt='icon' className='icon-default' />}
+        <div className='button-text'>
+          {buttonText}
+        </div>
+      </button>
+    );
+};
+
+
+
 const OutlineButton = ({ buttonText, showIcon, icon, onClick }) => {
     return (
       <button className="outline-btn" onClick={onClick}>
@@ -47,4 +61,4 @@ const ElevatedButton = ({ buttonText, showIcon, icon, onClick }) => {
 
 
   
-export { PrimaryButton, SecondaryButton, OutlineButton, ElevatedButton };
+export { PrimaryButton, SecondaryButton, TertiaryButton,OutlineButton, ElevatedButton };

@@ -23,7 +23,7 @@ const LeftSidebar = () => {
           
           <NavItem icon="/icons/dashboard.png" label="Dashboard"/>
 
-          <Link to='/my-applications' className='no-styling'>
+          <Link to='/myapplications' className='no-styling'>
             <NavItem icon="/icons/myappplications.png" label="My Applications"/>
           </Link>
 

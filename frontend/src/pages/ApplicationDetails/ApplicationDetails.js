@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const ApplicationDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate()
   const [application, setApplication] = useState(null);
 
   useEffect(() => {
@@ -19,6 +20,24 @@ const ApplicationDetails = () => {
     fetchApplication();
   }, [id]);
 
+    const handleEdit = () => {
+      navigate(`myapplications/${id}/edit`);
+    }
+
+    const handleDelete = async () => {
+      try {
+        await axios.delete(`/api/myapplications/${id}/`, {
+          headers: {
+            'X-CSRFToken': 'your_csrf_token_here', 
+          },
+        });
+        navigate('/myapplications')
+
+      } catch (error) {
+        console.error('Error deleting application:', error);
+      }
+    };
+
   return (
     <div>
       {application ? (
@@ -29,7 +48,11 @@ const ApplicationDetails = () => {
           <p>Role: {application.role}</p>
           <p>Date Applied: {application.date_applied}</p>
           <p>Description: {application.description}</p>
-          <button>Edit</button>
+          
+            <button onClick={handleEdit}>Edit</button>
+
+            <button onClick={handleDelete}>Delete</button>
+
         </div>
       ) : (
         <p>Loading...</p>

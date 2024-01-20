@@ -1,6 +1,15 @@
 import React from 'react'
-import './LeftSidebar.css';
+import { Link } from 'react-router-dom';
+
+
+//Components
 import { ElevatedButton } from '../Buttons/Buttons'
+import { NavItem } from '../NavItems/NavItems'
+
+
+// CSS
+import './LeftSidebar.css';
+
 
 const LeftSidebar = () => {
   const handleClick = () => {
@@ -11,13 +20,18 @@ const LeftSidebar = () => {
     <ul className='leftsidebar-group'>
       <div className='top-section'>
         <div className='nav-item-group'>
-          <li>Dashboard</li>
-          <li>My Applications</li>
-          <li>Resume</li>
-          <li>Inteview Prep</li>
+          
+          <NavItem icon="/icons/dashboard.png" label="Dashboard"/>
+
+          <Link to='/my-applications' className='no-styling'>
+            <NavItem icon="/icons/myappplications.png" label="My Applications"/>
+          </Link>
+
+          <NavItem icon="/icons/resume.png" label="Resume"/>
+          <NavItem icon="/icons/interviewprep.png" label="Interview Prep"/>
         </div>
         
-        <ElevatedButton buttonText="Add" showIcon={false} onClick={handleClick} />
+        <ElevatedButton buttonText="Add" showIcon={true} icon="/icons/addpurple.png" onClick={handleClick} />
       </div>
     
       <li>Find Jobs</li>

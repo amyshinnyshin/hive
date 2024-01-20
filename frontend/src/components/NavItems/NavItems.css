@@ -1,0 +1,36 @@
+li.nav-item {
+    display: flex;
+    align-items: flex-start;
+    align-self: stretch;
+    flex: 1;
+    gap: 8px;
+    padding: 12px;
+    background-color: transparent;
+    border-radius: 8px;
+    line-height: 24px;
+}
+
+li.nav-item:hover {
+    background-color: var(--Magnolia-100);
+}
+
+li.icon-nav-item {
+    display: flex;
+    height: 40px;
+    width: 40px;
+    background-color: transparent;
+    border-radius: 64px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+li.icon-nav-item:hover {
+    background-color: var(--Magnolia-100);
+}
+
+.no-styling {
+    text-decoration: none;
+    color: inherit;
+    align-self: stretch;
+}

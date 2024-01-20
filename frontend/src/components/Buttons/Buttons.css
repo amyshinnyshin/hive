@@ -15,6 +15,11 @@ button {
     border-radius: 8px;
   }
 
+.button-text {
+    font-size: 16px;
+    font-weight: 700;
+}
+
 .primary-btn {
     color: white;
     background-color: var(--Magnolia-700);

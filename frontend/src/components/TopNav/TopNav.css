@@ -17,6 +17,10 @@ ul.top-nav-group {
     align-self: stretch;
 }
 
+.logo {
+    height: 36px;
+}
+
 .top-nav-group div.right-section {
     display: flex;
     justify-content: flex-end;

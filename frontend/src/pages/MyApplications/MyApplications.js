@@ -1,16 +1,20 @@
 import React from 'react'
-// import TopNav from '../../components/TopNav/TopNav'
-// import LeftSidebar from '../../components/LeftSidebar/LeftSidebar'
-// import { PrimaryButton, OutlineButton } from '../../components/Buttons/Buttons'
+
+
 import './MyApplications.css';
+import Tiles from '../../components/Tiles/Tiles';
+
 
 
 const MyApplications = () => {
+
   return (
     <div>
+      <h2>My Job Applications</h2>
+          <Tiles />
+      </div>
+  );
+};
 
-    </div>
-  )
-}
 
 export default MyApplications

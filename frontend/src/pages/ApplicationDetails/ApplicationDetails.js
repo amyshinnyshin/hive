@@ -29,6 +29,7 @@ const ApplicationDetails = () => {
           <p>Role: {application.role}</p>
           <p>Date Applied: {application.date_applied}</p>
           <p>Description: {application.description}</p>
+          <button>Edit</button>
         </div>
       ) : (
         <p>Loading...</p>

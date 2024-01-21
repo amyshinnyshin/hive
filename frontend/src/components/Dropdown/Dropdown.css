@@ -12,10 +12,12 @@
 .placeholder-group {
     width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
     flex: 1 0 0;
 }
+
 
 .options-container {
     display: flex;

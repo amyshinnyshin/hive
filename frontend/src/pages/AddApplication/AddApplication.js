@@ -7,6 +7,8 @@ import TopNav from '../../components/TopNav/TopNav';
 import LeftSidebar from '../../components/LeftSidebar/LeftSidebar';
 import { DateInput, TextBox, TextInput } from '../../components/InputFields/InputFields';
 import { PrimaryButton, SecondaryButton } from '../../components/Buttons/Buttons';
+import Dropdown from '../../components/Dropdown/Dropdown';
+
 
 
 const AddApplication = () => {
@@ -25,6 +27,13 @@ const AddApplication = () => {
         ...formData,
         [e.target.name]: e.target.value,
     });
+    };
+
+    const handleStatusChange = (selectedStatus) => {
+        setFormData({
+          ...formData,
+          status: selectedStatus.value,
+        });
     };
 
     const handleSubmit = async (e) => {
@@ -47,6 +56,15 @@ const AddApplication = () => {
         console.error('Error creating application:', error);
     }
     };
+
+    const statusOptions = [
+        { value: 'applied', label: 'Applied' },
+        { value: 'interviews', label: 'Interviews' },
+        { value: 'rejected', label: 'Rejected' },
+        { value: 'offered', label: 'Offered' },
+        { value: 'deferred', label: 'Deferred' },
+      ];
+
 
     return (
     <div>
@@ -101,21 +119,8 @@ const AddApplication = () => {
                             </div>
                         </div>
                         <div className='right-section'>
-                            <label>
-                            <select
-                                name="status"
-                                value={formData.status}
-                                onChange={handleChange}
-                            >
-                                <option value="">Select Status</option>
-                                <option value="applied">Applied</option>
-                                <option value="interviews">Interviews</option>
-                                <option value="rejected">Rejected</option>
-                                <option value="offered">Offered</option>
-                                <option value="deferred">Deferred</option>
-                                <option value="selected">Selected</option>
-                            </select>
-                            </label>
+                            <Dropdown options={statusOptions} value={formData.status} onSelect={handleStatusChange} />
+
                         </div>
                         </div>
                     </div>

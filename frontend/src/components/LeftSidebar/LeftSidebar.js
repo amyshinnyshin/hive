@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 
 //Components
@@ -14,33 +14,36 @@ import './LeftSidebar.css';
 const LeftSidebar = () => {
   const navigate = useNavigate()
 
-  // const handleClick = () => {
-  //   console.log('Button Clicked');
-  // };
-
   const handleAddClick = () => {
     navigate('/myapplications/add')
   }
+
+  const isPathActive = (path) => {
+    const currentPath = window.location.pathname;
+    return currentPath.startsWith(path);
+  };
 
   return (
     <ul className='leftsidebar-group'>
       <div className='top-section'>
         <div className='nav-item-group'>
           
-          <NavItem icon="/icons/dashboard.png" label="Dashboard"/>
+          <NavItem icon="/icons/dashboard.png" label="Dashboard" showIconAfter={false}/>
 
-          <Link to='/myapplications' className='no-styling'>
-            <NavItem icon="/icons/myappplications.png" label="My Applications"/>
-          </Link>
+          <NavLink to='/myapplications' className={`no-styling ${isPathActive('/myapplications') ? 'active-nav' : ''}`}>
+            <NavItem icon="/icons/myappplications.png" label="My Applications" showIconAfter={false} />
+          </NavLink>
 
-          <NavItem icon="/icons/resume.png" label="Resume"/>
-          <NavItem icon="/icons/interviewprep.png" label="Interview Prep"/>
+          <NavItem icon="/icons/resume.png" label="Resume" showIconAfter={false}/>
+          <NavItem icon="/icons/interviewprep.png" label="Interview Prep" showIconAfter={false}/>
         </div>
 
             <ElevatedButton buttonText="Add" showIcon={true} icon="/icons/addpurple.png" onClick={handleAddClick} />
       </div>
     
-      <li>Find Jobs</li>
+      <div className="btm-nav-item">
+        <NavItem className="find-job" icon="/icons/briefcase.png" label="Find Jobs" iconafter="/icons/external.png" showIconAfter={true}/>
+      </div>
     </ul>
   )
 }

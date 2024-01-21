@@ -1,9 +1,12 @@
 import React from 'react'
 
+import './Tags.css';
+
+
 const Tags = () => {
   return (
-    <div>
-      6
+    <div className='tag'>
+      <p className='small'>6</p>
     </div>
   )
 }

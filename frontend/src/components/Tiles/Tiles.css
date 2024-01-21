@@ -1,3 +1,7 @@
+.tile {
+    width: 100%;
+}
+
 .tile-container {
     display: flex;
     height: 160px;

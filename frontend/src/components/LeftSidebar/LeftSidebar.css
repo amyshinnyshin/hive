@@ -26,3 +26,13 @@ ul.leftsidebar-group div.nav-item-group {
     align-self: stretch;
 }
 
+.active-nav {
+    background-color: var(--Magnolia-200);
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.btm-nav-item {
+    width: 100%;
+    margin-bottom: 24px;
+}

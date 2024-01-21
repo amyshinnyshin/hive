@@ -1,0 +1,23 @@
+.status-header-container{
+    display: flex;
+    padding-right: 2px;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-self: stretch;
+}
+
+.status-header-container > .left-section {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.myapp-emoji-container {
+    height: 24px; 
+    width: 24px;
+    display: flex;
+    width: 24px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

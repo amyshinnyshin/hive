@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 
 import './MyApplications.css';
-import Tiles from '../../components/Tiles/Tiles';
 import TopNav from '../../components/TopNav/TopNav';
 import LeftSidebar from '../../components/LeftSidebar/LeftSidebar';
 import { OutlineButton, PrimaryButton } from '../../components/Buttons/Buttons';

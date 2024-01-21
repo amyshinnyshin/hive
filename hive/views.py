@@ -1,5 +1,5 @@
 from rest_framework import generics
-from rest_framework.response import Response
+
 from .models import JobApplication, Comment
 from .serializers import JobApplicationSerializer, CommentSerializer
 

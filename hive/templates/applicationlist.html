@@ -16,7 +16,6 @@
         {{ job_application.role }} {{ job_application.company_name }}
     </p>
     <form method="post" action="{% url 'delete_application' job_application.id %}">
-        {% csrf_token %}
         <input type="submit" value="Delete">
     </form>
     <a href="{% url 'edit_application' job_application.id %}"><button>Edit</button></a>

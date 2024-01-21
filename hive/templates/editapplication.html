@@ -9,7 +9,6 @@
 <body>
     <h1>Edit {{ form.company_name.value }} Application</h1>
     <form method="post">
-        {% csrf_token %}
         
         <label for="{{ form.status.id_for_label }}">Status:</label>
         {{ form.status }}

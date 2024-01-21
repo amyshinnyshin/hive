@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 //Components
@@ -12,9 +12,15 @@ import './LeftSidebar.css';
 
 
 const LeftSidebar = () => {
-  const handleClick = () => {
-    console.log('Button Clicked');
-  };
+  const navigate = useNavigate()
+
+  // const handleClick = () => {
+  //   console.log('Button Clicked');
+  // };
+
+  const handleAddClick = () => {
+    navigate('/myapplications/add')
+  }
 
   return (
     <ul className='leftsidebar-group'>
@@ -30,8 +36,8 @@ const LeftSidebar = () => {
           <NavItem icon="/icons/resume.png" label="Resume"/>
           <NavItem icon="/icons/interviewprep.png" label="Interview Prep"/>
         </div>
-        
-        <ElevatedButton buttonText="Add" showIcon={true} icon="/icons/addpurple.png" onClick={handleClick} />
+
+            <ElevatedButton buttonText="Add" showIcon={true} icon="/icons/addpurple.png" onClick={handleAddClick} />
       </div>
     
       <li>Find Jobs</li>

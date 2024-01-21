@@ -7,6 +7,7 @@ import Tiles from '../../components/Tiles/Tiles';
 import TopNav from '../../components/TopNav/TopNav';
 import LeftSidebar from '../../components/LeftSidebar/LeftSidebar';
 import { OutlineButton, PrimaryButton } from '../../components/Buttons/Buttons';
+import StatusSection from '../../components/StatusSection/StatusSection';
 
 
 
@@ -38,7 +39,7 @@ const MyApplications = () => {
           
 
           <div className='status-section-container'>
-              <Tiles />
+              <StatusSection />
           </div>
 
 

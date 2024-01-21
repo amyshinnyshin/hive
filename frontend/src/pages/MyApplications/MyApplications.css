@@ -22,7 +22,7 @@
     align-self: stretch;
 }
 
-.status-section{
+/* .status-section{
     display: flex;
     padding: 12px 8px;
     flex-direction: column;
@@ -33,9 +33,9 @@
     border-radius: 8px;
     background: var(--Iron-25);
     flex: 1;
-}
+} */
 
-.status-header-container {
+/* .status-header-container {
     display: flex;
     padding-right: 2px;
     justify-content: space-between;
@@ -65,4 +65,4 @@
     align-items: center;
     border-radius: 4px;
     background: var(--Iron-200);
-}
+} */

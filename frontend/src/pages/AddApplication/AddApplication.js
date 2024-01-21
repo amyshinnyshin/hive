@@ -8,6 +8,7 @@ import LeftSidebar from '../../components/LeftSidebar/LeftSidebar';
 import { DateInput, TextBox, TextInput } from '../../components/InputFields/InputFields';
 import { PrimaryButton, SecondaryButton } from '../../components/Buttons/Buttons';
 import Dropdown from '../../components/Dropdown/Dropdown';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 
 
@@ -67,74 +68,81 @@ const AddApplication = () => {
 
 
     return (
-    <div>
-        <div className='top-nav-container'>
-            <TopNav />
-        </div>
+        <div>
+            <div className='top-nav-container'>
+                <TopNav />
+            </div>
 
-        <div className='leftsidebar-container'>
-          <LeftSidebar />
-        </div>
+            <div className='leftsidebar-container'>
+            <LeftSidebar />
+            </div>
 
-        <div className='page-container'>
-            <div className='form-page-container'>
-                <div className='breadcrumb'></div>
-                
+            <div className='page-container'>
+                <div className='form-page-container'>
+                    <div className='breadcrumb'></div>
+                    
 
-                <form onSubmit={handleSubmit} className='form-container'>
-                    <div className='form'>
-                        <h2>Add New Application</h2>
-                        <div className='form-group'>
-                        <div className='left-section'>
-                        <div className='container'>
-                            <TextInput
-                                label="Company Name"
-                                type="text"
-                                name="company_name"
-                                value={formData.company_name}
-                                onChange={handleChange}
-                                placeholder="Add company name..."
-                            />
-                            <TextInput
-                                label="Role"
-                                type="text"
-                                name="role"
-                                value={formData.role}
-                                onChange={handleChange}
-                                placeholder="Add role title..."
-                            />
-                            <DateInput
-                                label="Date Applied"
-                                name="date_applied"
-                                value={formData.date_applied}
-                                onChange={handleChange}
-                            />
-                            <TextBox
-                                label="Description"
-                                name="description"
-                                value={formData.description}
-                                onChange={handleChange}
-                                placeholder="Add job description..."
-                            />
+                    <form onSubmit={handleSubmit} className='form-container'>
+                        <div className='form'>
+                            <Breadcrumb pageName='New'/>
+                            <h2> New Application</h2>
+                            
+                            <div className='form-group'>
+                            <div className='left-section'>
+                            <div className='container'>
+                                <TextInput
+                                    label="Company Name"
+                                    type="text"
+                                    name="company_name"
+                                    value={formData.company_name}
+                                    onChange={handleChange}
+                                    placeholder="Add company name..."
+                                />
+                                <TextInput
+                                    label="Role"
+                                    type="text"
+                                    name="role"
+                                    value={formData.role}
+                                    onChange={handleChange}
+                                    placeholder="Add role title..."
+                                />
+                                <DateInput
+                                    label="Date Applied"
+                                    name="date_applied"
+                                    value={formData.date_applied}
+                                    onChange={handleChange}
+                                />
+                                <TextBox
+                                    label="Description"
+                                    name="description"
+                                    value={formData.description}
+                                    onChange={handleChange}
+                                    placeholder="Add job description..."
+                                />
+                                </div>
+                            </div>
+                            <div className='right-section'>
+                                <Dropdown options={statusOptions} value={formData.status} onSelect={handleStatusChange} className='dropdown' />
+
+                                <div className='comments-section'>
+                                    <h4>Comments</h4>
+                                </div>
+                                
+
+                            </div>
                             </div>
                         </div>
-                        <div className='right-section'>
-                            <Dropdown options={statusOptions} value={formData.status} onSelect={handleStatusChange} />
-
+                        <div className='btm-button-container'>
+                            <Link to={`/myapplications`} className='no-link-styling'>
+                                <SecondaryButton buttonText="Cancel" />
+                            </Link>
+                            <PrimaryButton type="submit" buttonText="Save Application" />
                         </div>
-                        </div>
-                    </div>
-                    <div className='btm-button-container'>
-                        <Link to={`/myapplications`} className='no-link-styling'>
-                            <SecondaryButton buttonText="Cancel" />
-                        </Link>
-                        <PrimaryButton type="submit" buttonText="Save Application" />
-                    </div>
-                    </form>
+                        </form>
 
+                </div>
             </div>
         </div>
-    </div>
     );
     };
 

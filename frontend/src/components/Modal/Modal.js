@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 import './Modal.css';
 
 const Modal = ({ application, onClose, onEdit, onDelete }) => {
   const [notHovered, hovered] = useState(false);
+  const navigate = useNavigate()
 
   const handleEdit = () => {
-    onEdit(application.id);
+    navigate(`/myapplications/${application.id}/edit`);
   };
 
   const handleDelete = async () => {

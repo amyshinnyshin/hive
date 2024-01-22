@@ -38,27 +38,23 @@ const Tiles = ({ status }) => {
 
   return (
     <div className='tile'>
-      {applications.length > 0 ? (
-        filterTiles.map(application => (
-          <div key={application.id} className='tile-container' onClick={() => handleOpenModal(application)}>
-            <div className='top-section'>
-              <h4>{application.company_name}</h4>
-              <p>{application.role}</p>
-              {false && <p className='status'>{application.status}</p>}
-            </div>
-
-            <div className='bottom-section'>
-              <div className='comments-container'>
-                <img src='/icons/comments.png' className='icon-small' alt='icon'></img>
-                <p className='small'>2</p>
-              </div>
-              <p className='small'>Applied {application.date_applied}</p>
-            </div>
+      {filterTiles.map(application => (
+        <div key={application.id} className='tile-container' onClick={() => handleOpenModal(application)}>
+          <div className='top-section'>
+            <h4>{application.company_name}</h4>
+            <p>{application.role}</p>
+            {false && <p className='status'>{application.status}</p>}
           </div>
-        ))
-      ) : (
-        <p>No applications available.</p>
-      )}
+
+          <div className='bottom-section'>
+            <div className='comments-container'>
+              <img src='/icons/comments.png' className='icon-small' alt='icon'></img>
+              <p className='small'>2</p>
+            </div>
+            <p className='small'>Applied {application.date_applied}</p>
+          </div>
+        </div>
+      ))}
 
       <div>
         {isModalOpen && (

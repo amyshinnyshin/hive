@@ -3,10 +3,10 @@ import React from 'react'
 import './Tags.css';
 
 
-const Tags = () => {
+const Tags = ({num}) => {
   return (
     <div className='tag'>
-      <p className='small'>6</p>
+      <p className='small'>{num}</p>
     </div>
   )
 }

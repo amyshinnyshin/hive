@@ -4,6 +4,7 @@
     justify-content: space-between;
     align-items: flex-end;
     align-self: stretch;
+    flex-direction: row;
 }
 
 .status-header-container > .left-section {

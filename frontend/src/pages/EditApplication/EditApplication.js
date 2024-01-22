@@ -71,8 +71,8 @@ const EditApplication = () => {
         { value: 'applied', label: 'Applied' },
         { value: 'interviews', label: 'Interviews' },
         { value: 'rejected', label: 'Rejected' },
-        { value: 'offered', label: 'Offered' },
         { value: 'deferred', label: 'Deferred' },
+        { value: 'offered', label: 'Offered' },
       ];
 
     

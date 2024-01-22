@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 
 import './StatusSection.css';
 
@@ -9,26 +10,46 @@ import StatusColumnHeader from '../StatusColumnHeader/StatusColumnHeader';
 
 
 const StatusSection = () => {
+  const [applications, setApplications] = useState([]);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('api/myapplications/');
+        setApplications(response.data);
+      } catch(error) {
+        console.error('Error fetching data:', error)
+      }
+    };
+
+    fetchData();
+
+  }, []);
+
+  const counter = (status) => {
+    return applications.filter(application => application.status === status).length;
+  }
+
   return (
     <div className='status-section-grid'>
       <div className='status-column applied'>
-        <StatusColumnHeader statusName="APPLIED" emoji="✅"/>
+        <StatusColumnHeader statusName="APPLIED" emoji="✅" count={counter('applied') || 0} />
         <Tiles status='applied'/>
       </div>
       <div className='status-column interviews'>
-        <StatusColumnHeader statusName="INTERVIEWS" emoji="❓"/>
-        <Tiles status='interviews'/>
+        <StatusColumnHeader statusName="INTERVIEWS" emoji="❓" count={counter('interviews') || 0}/>
+        <Tiles status='interviews' />
       </div>
       <div className='status-column rejected'>
-        <StatusColumnHeader statusName="REJECTED" emoji="😩"/>
+        <StatusColumnHeader statusName="REJECTED" emoji="😩" count={counter('rejected') || 0}/>
         <Tiles status='rejected'/>
       </div>
       <div className='status-column deferred'>
-        <StatusColumnHeader statusName="DEFERRED" emoji="👎"/>
+        <StatusColumnHeader statusName="DEFERRED" emoji="👎" count={counter('deferred') || 0}/>
         <Tiles status='deferred'/>
       </div>
       <div className='status-column offered'>
-        <StatusColumnHeader statusName="OFFERED" emoji="🎉"/>
+        <StatusColumnHeader statusName="OFFERED" emoji="🎉" count={counter('offered') || 0}/>
         <Tiles status='offered'/>
       </div>
     </div>

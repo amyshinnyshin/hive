@@ -75,5 +75,47 @@
   }
 
   .comments-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
     padding-top: 32px;
   }
+
+.comment-textbox-container > .profile-container {
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div.profile {
+  height: 32px;
+  width: 32px;
+  background-color: var(--Iron-200);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+  border-radius: 32px;
+}
+
+p.profile {
+  font-family: 700;
+}
+
+
+.comment-textbox-container {
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.comment-input {
+  width: 100%;
+}

@@ -2,7 +2,7 @@ import React from 'react'
 import './InputFields.css';
 
 
-const TextInput = ({ label, type, name, value, onChange, placeholderText }) => {
+const TextInput = ({ label, type, name, value, onChange, placeholder }) => {
     return (
       <label className='text-input'>
         {label}
@@ -12,13 +12,13 @@ const TextInput = ({ label, type, name, value, onChange, placeholderText }) => {
           name={name}
           value={value}
           onChange={onChange}
-          placeholder={placeholderText}
+          placeholder={placeholder}
         />
       </label>
     );
   };
 
-const DateInput = ({ label, name, value, onChange, placeholderText }) => {
+const DateInput = ({ label, name, value, onChange, placeholder }) => {
     return (
       <label className='date-input'>
         {label}
@@ -28,13 +28,13 @@ const DateInput = ({ label, name, value, onChange, placeholderText }) => {
             name={name}
             value={value}
             onChange={onChange}
-            placeholder={placeholderText}
+            placeholder={placeholder}
         />
       </label>
     );
 };
 
-const TextBox = ({ label, name, value, onChange, placeholderText }) => {
+const TextBox = ({ label, name, value, onChange, placeholder }) => {
     return (
       <label className='textbox'>
         {label}
@@ -43,13 +43,25 @@ const TextBox = ({ label, name, value, onChange, placeholderText }) => {
           name={name}
           value={value}
           onChange={onChange}
-          placeholder={placeholderText}  
+          placeholder={placeholder}  
         />
       </label>
     );
   };
+
+  const CommentTextBox = ({ name, value, onChange, placeholder }) => {
+    return (
+        <textarea 
+          className='comment-textarea default'
+          name={name}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}  
+        />
+    );
+  };
+  
   
 
 
-
-export { TextInput, DateInput, TextBox } 
+export { TextInput, DateInput, TextBox, CommentTextBox } 

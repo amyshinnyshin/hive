@@ -68,11 +68,11 @@ const EditApplication = () => {
       };
 
     const statusOptions = [
-        { value: 'applied', label: 'Applied' },
-        { value: 'interviews', label: 'Interviews' },
-        { value: 'rejected', label: 'Rejected' },
-        { value: 'deferred', label: 'Deferred' },
-        { value: 'offered', label: 'Offered' },
+        { value: 'applied', label: 'APPLIED', emoji: '✅'},
+        { value: 'interviews', label: 'INTERVIEWS', emoji: '❓' },
+        { value: 'rejected', label: 'REJECTED', emoji: '😩' },
+        { value: 'deferred', label: 'DEFERRED', emoji: '👎' },
+        { value: 'offered', label: 'OFFERED', emoji: '🎉' },
       ];
 
     

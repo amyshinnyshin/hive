@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { CommentTextBox } from '../InputFields/InputFields';
+
 
 import './Modal.css';
 
-const Modal = ({ application, onClose, onEdit, onDelete }) => {
+
+const Modal = ({ application, onClose, }) => {
   const [notHovered, hovered] = useState(false);
   const navigate = useNavigate()
 
@@ -42,6 +45,7 @@ const Modal = ({ application, onClose, onEdit, onDelete }) => {
 
   return (
     <div className='overlay'>
+      
       <div>
         <div className='modal-container'>
           <div className='modal-header-section'>
@@ -99,6 +103,20 @@ const Modal = ({ application, onClose, onEdit, onDelete }) => {
             </div>
             <div className='comments-section'>
               <h4>Comments</h4>
+
+              <div className='comment-textbox-container'>
+                <div className='profile-container'>
+                  <div className='profile'>
+                    <p className='profile'>AS</p>
+                  </div>
+                </div>
+                <div className="comment-input">
+                  <CommentTextBox placeholder="Add a comment or note..."/>
+                </div>
+                
+              </div>
+
+
             </div>
           </div>
         </div>

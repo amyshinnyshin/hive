@@ -113,6 +113,7 @@ const AddApplication = () => {
                                     onChange={handleChange}
                                 />
                                 <TextBox
+                                    className="textarea"
                                     label="Description"
                                     name="description"
                                     value={formData.description}

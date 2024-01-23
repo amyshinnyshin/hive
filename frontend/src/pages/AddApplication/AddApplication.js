@@ -41,16 +41,14 @@ const AddApplication = () => {
     e.preventDefault();
 
     try {
-        // Make a POST request to create the application
         const response = await axios.post('http://localhost:8000/api/myapplications/', formData, {
         headers: {
             'Content-Type': 'application/json',
         },
         });
 
-        // Check if the request was successful
         if (response.status === 201) {
-        // Redirect to the "My Applications" page
+
         navigate('/myapplications');
         }
     } catch (error) {

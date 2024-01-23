@@ -13,7 +13,7 @@ import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 
 
-const EditApplication = () => {
+const EditApplication = ( ) => {
     const { id }  = useParams();
     const navigate = useNavigate();
 
@@ -24,6 +24,8 @@ const EditApplication = () => {
         date_applied: '',
         description: '',
     });
+
+
 
     useEffect(() => {
 
@@ -37,6 +39,23 @@ const EditApplication = () => {
         };
         fetchAppDetails();
     }, [id]);
+
+
+    const handleDelete = async () => {
+        try {
+          await axios.delete(`http://localhost:8000/api/myapplications/${id}/`, {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+      
+          navigate('/myapplications'); // Navigate to the "myapplications" page
+        } catch (error) {
+          console.error('Error deleting application:', error);
+        }
+      };
+      
+   
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -131,6 +150,7 @@ const EditApplication = () => {
                             </div>
                             <div className='right-section'>
                                 <Dropdown options={statusOptions} value={formData.status} onSelect={handleStatusChange} className='dropdown' />
+                                
 
                                 <div className='comments-section'>
                                     <h4>Comments</h4>
@@ -140,11 +160,17 @@ const EditApplication = () => {
                             </div>
                             </div>
                         </div>
-                        <div className='btm-button-container'>
-                            <Link to={`/myapplications`} className='no-link-styling'>
-                                <SecondaryButton buttonText="Cancel" />
-                            </Link>
-                            <PrimaryButton type="submit" buttonText="Save Change" />
+                        <div className='edit-btm-button-container'>
+                            <div className='delete-link' onClick={handleDelete}>
+                                <img src="/icons/delete-red-default.png" alt='icon' className='icon-default'></img>
+                                <p className='bold'>Delete</p>
+                            </div>
+                            <div className='btn-group'>
+                                <Link to={`/myapplications`} className='no-link-styling'>
+                                    <SecondaryButton buttonText="Cancel" />
+                                </Link>
+                                <PrimaryButton type="submit" buttonText="Save Change" />
+                            </div>
                         </div>
                         </form>
 
@@ -157,3 +183,4 @@ const EditApplication = () => {
 };
 
 export default EditApplication
+

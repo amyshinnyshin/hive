@@ -23,6 +23,9 @@ const AddApplication = () => {
     description: '',
     });
 
+    const [commentText, setCommentText] = useState('');
+    const [comments, setComments] = useState([]);
+
     const handleChange = (e) => {
     setFormData({
         ...formData,
@@ -37,24 +40,51 @@ const AddApplication = () => {
         });
     };
 
-    const handleSubmit = async (e) => {
-    e.preventDefault();
 
-    try {
-        const response = await axios.post('http://localhost:8000/api/myapplications/', formData, {
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        });
-
-        if (response.status === 201) {
-
-        navigate('/myapplications');
-        }
-    } catch (error) {
-        console.error('Error creating application:', error);
-    }
+    // Comments >>
+    const handleCommentChange = (e) => {
+        setCommentText(e.target.value);
     };
+
+    const handleAddComment = () => {
+        const newComment = {
+            id: comments.length + 1, 
+            text: commentText, 
+        }
+    };
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+    
+        try {
+          
+          const response = await axios.post('http://localhost:8000/api/myapplications/', formData, {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+    
+          if (response.status === 201) {
+            
+            const newApplicationId = response.data.id;
+    
+            
+            const commentsWithApplicationId = comments.map(comment => ({
+              ...comment,
+              job_application: newApplicationId,
+            }));
+    
+           
+            await axios.post(`http://localhost:8000/api/job-applications/${newApplicationId}/comments/`, commentsWithApplicationId);
+    
+            
+            navigate('/myapplications');
+          }
+        } catch (error) {
+          console.error('Error creating application:', error);
+        }
+      };
 
     const statusOptions = [
         { value: 'applied', label: 'APPLIED', emoji: '✅'},
@@ -124,7 +154,23 @@ const AddApplication = () => {
                                 <Dropdown options={statusOptions} value={formData.status} onSelect={handleStatusChange} className='dropdown' />
 
                                 <div className='comments-section'>
-                                    <h4>Comments</h4>
+                                <h4>Comments</h4>
+                                    <div>
+                                    <textarea
+                                        value={commentText}
+                                        onChange={handleCommentChange}
+                                        placeholder="Add a comment..."
+                                    />
+                                    <button type="button" onClick={handleAddComment}>
+                                        Add Comment
+                                    </button>
+                                    </div>
+                                    {comments.map(comment => (
+                                    <div key={comment.id}>
+                                        <p>{comment.text}</p>
+                                        <p>Created at: {comment.created_at}</p>
+                                    </div>
+                                    ))}
                                 </div>
                                 
 

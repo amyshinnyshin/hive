@@ -68,6 +68,7 @@
     border: 1px solid var(--Iron-100);
     border-radius: 8px;
     min-height: 50%;
+    box-sizing: border-box;
 }
 
 .btm-button-container {

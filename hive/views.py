@@ -29,11 +29,10 @@ class CommentDetails(generics.RetrieveUpdateDestroyAPIView):
 
 # # Comment List View
 class CommentList(generics.ListCreateAPIView):
-    queryset = Comment.objects.all()
     serializer_class = CommentSerializer
 
     def get_queryset(self):
-        job_application_id = self.kwargs.get('pk')  
+        job_application_id = self.request.query_params.get('job_application')
         if job_application_id:
             return Comment.objects.filter(job_application=job_application_id)
         else:

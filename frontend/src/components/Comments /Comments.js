@@ -1,7 +1,7 @@
-// Comment.js
+// Comments.js
 import React from 'react';
 
-const Comments = ({ comment }) => {
+const Comments = ({ comment, onDelete }) => {
   return (
     <div className='created-comment-textbox-container'>
       <div className='profile-container'>
@@ -29,7 +29,7 @@ const Comments = ({ comment }) => {
               <img src="/icons/edit.png" alt='icon' className='icon-default'></img>
               <p className='small-edit-link'>Edit</p>
             </div>
-            <div className="comment-action delete">
+            <div className="comment-action delete" onClick={() => onDelete(comment.id)}>
               <img src="/icons/delete-red-default.png" alt='icon' className='icon-default'></img>
               <p className='small-delete-link'>Delete</p>
             </div>

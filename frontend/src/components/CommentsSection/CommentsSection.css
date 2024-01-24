@@ -67,9 +67,13 @@ p.profile {
   border-radius: 8px;
 }
 
-.created-comment-textbox-container.hovered {
+.created-comment-textbox-container:hover {
     background-color: var(--Iron-25)
-  }
+}
+
+.created-comment-textbox-container:hover .comment-action-buttons {
+    opacity: 1;
+}
 
 
 .created-comment {
@@ -105,7 +109,7 @@ p.bold {
 
   align-items: flex-start;
   gap: 4px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid transparent;
 }
 
 div.comment-action-buttons > .edit:hover {
@@ -133,5 +137,5 @@ p.small-delete-link {
   display: flex;
   align-items: center;
   gap: 8px;
-  
+  opacity: 0;
 }

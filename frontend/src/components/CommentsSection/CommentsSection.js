@@ -1,11 +1,11 @@
+// CommentsSection.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { CommentTextBox } from '../InputFields/InputFields';
-import Comments from '../Comments /Comments';
 
 
 import './CommentsSection.css';
-
+import Comments from '../Comments /Comments';
 
 const CommentsSection = ({ applicationId }) => {
   const [commentText, setCommentText] = useState('');
@@ -15,39 +15,53 @@ const CommentsSection = ({ applicationId }) => {
     const fetchComments = async () => {
       try {
         const response = await axios.get(`http://localhost:8000/api/comments/?job_application=${applicationId}`);
-        const sortedComments = response.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+        const sortedComments = [...response.data].reverse();
+
         setComments(sortedComments);
+
       } catch (error) {
         console.error('Error fetching comments:', error);
       }
     };
-  
+
     fetchComments();
   }, [applicationId]);
 
   const handleAddComment = async () => {
-    const response = await axios.post(
-      'http://localhost:8000/api/comments/',
-      {
-        job_application: applicationId,
-        text: commentText,
-      },
-      {
+    try {
+      const response = await axios.post(
+        'http://localhost:8000/api/comments/',
+        {
+          job_application: applicationId,
+          text: commentText,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      setComments((prevComments) => [response.data, ...prevComments]);
+      setCommentText('');
+    } catch (error) {
+      console.error('Error adding comment:', error);
+    }
+  };
+
+  const handleDeleteComment = async (commentId) => {
+    try {
+      await axios.delete(`http://localhost:8000/api/comments/${commentId}/`, {
         headers: {
           'Content-Type': 'application/json',
         },
-      }
-    );
-  
-    console.log('API Response:', response);
+      });
 
-    setComments([...comments, response.data]);
-  
-
-    setCommentText('');
+      setComments((prevComments) => prevComments.filter((comment) => comment.id !== commentId));
+    } catch (error) {
+      console.error('Error deleting comment:', error);
+    }
   };
-  
-  
 
   return (
     <div className="comments-section">
@@ -74,7 +88,7 @@ const CommentsSection = ({ applicationId }) => {
       </div>
       <div>
         {comments.map((comment) => (
-          <Comments key={comment.id} comment={comment} />
+          <Comments key={comment.id} comment={comment} onDelete={handleDeleteComment} />
         ))}
       </div>
     </div>
@@ -82,5 +96,6 @@ const CommentsSection = ({ applicationId }) => {
 };
 
 export default CommentsSection;
+
 
 

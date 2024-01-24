@@ -15,7 +15,7 @@
     background-color: var(--White);
     width: 800px;
     min-height: 400px;
-    max-height: 60vh;
+    max-height: 75vh;
     display: flex;
     padding: 24px 24px 32px 24px;
     flex-direction: column;

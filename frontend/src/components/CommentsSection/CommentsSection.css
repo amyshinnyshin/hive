@@ -56,7 +56,6 @@ p.profile {
   justify-content: flex-end;
   align-items: flex-start;
   gap: 16px;
-  height: 40px;
 }
 
 .created-comment-textbox-container {
@@ -67,6 +66,11 @@ p.profile {
   align-self: stretch;
   border-radius: 8px;
 }
+
+.created-comment-textbox-container.hovered {
+    background-color: var(--Iron-25)
+  }
+
 
 .created-comment {
   width: 100%;
@@ -98,10 +102,10 @@ p.bold {
 
 .comment-action {
   display: flex;
-  padding-bottom: 2px;
+
   align-items: flex-start;
   gap: 4px;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid white;
 }
 
 div.comment-action-buttons > .edit:hover {
@@ -129,4 +133,5 @@ p.small-delete-link {
   display: flex;
   align-items: center;
   gap: 8px;
+  
 }

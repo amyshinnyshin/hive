@@ -1,5 +1,5 @@
+// Comment.js
 import React from 'react';
-
 
 const Comments = ({ comment }) => {
   return (

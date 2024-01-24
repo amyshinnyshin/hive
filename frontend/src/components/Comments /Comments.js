@@ -4,6 +4,7 @@ import { PrimaryButton, SecondaryButton } from '../Buttons/Buttons';
 
 const Comments = ({ comment, onDelete, onEdit }) => {
   const [isEditing, setIsEditing] = useState(false);
+  const [notHovered, hovered] = useState(false);
   const [editedComment, setEditedComment] = useState(comment.text);
 
 
@@ -16,7 +17,6 @@ const Comments = ({ comment, onDelete, onEdit }) => {
     setIsEditing(false);
   };
   
-
   const handleCancelEdit = () => {
     setIsEditing(false);
     setEditedComment(comment.text);
@@ -36,7 +36,7 @@ const Comments = ({ comment, onDelete, onEdit }) => {
             <p className='small'>
               {new Date(comment.updated_at).toLocaleString('en-US', {
                 year: 'numeric',
-                month: 'long',
+                month: 'short',
                 day: 'numeric',
                 hour: '2-digit',
                 minute: '2-digit',
@@ -48,15 +48,30 @@ const Comments = ({ comment, onDelete, onEdit }) => {
               <>
                 <div className="comment-action edit" onClick={handleEdit}>
                   <img src="/icons/edit.png" alt='icon' className='icon-default'></img>
-                  <p className='small-edit-link'>Edit</p>
+                  {/* <p className='small-edit-link'>Edit</p> */}
                 </div>
-                <img src='/icons/line.png' alt="line" className='line-small'></img>
+                {/* <img src='/icons/line.png' alt="line" className='line-small'></img> */}
               </>
             )}
-            <div className="comment-action delete" onClick={() => onDelete(comment.id)}>
-              <img src="/icons/delete-red-default.png" alt='icon' className='icon-default'></img>
-              <p className='small-delete-link'>Delete</p>
+            <div className="comment-action delete" onClick={() => onDelete(comment.id)} >
+              {/* <img src="/icons/delete-grey-default.png" alt='icon' className='icon-default'></img>
+              <p className='small-delete-link'>Delete</p> */}
+              <div
+        
+                className='icon-default'
+                onMouseEnter={() => hovered(true)}
+                onMouseLeave={() => hovered(false)}
+              >
+                <img
+                className='icon-default'
+                onMouseEnter={() => hovered(true)}
+                onMouseLeave={() => hovered(false)}
+                  src={notHovered ? '/icons/delete-red-default.png' : '/icons/delete-grey-default.png'}
+                  alt='Delete'>
+                </img>
+              </div>
             </div>
+            
           </div>
         </div>
         <div className='comment-input'>

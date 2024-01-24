@@ -56,6 +56,12 @@ p.profile {
 
 }
 
+.comments-spacing {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .comment-input {
   width: 100%;
   display: flex;
@@ -75,7 +81,7 @@ p.profile {
 
 .created-comment-textbox-container {
   display: flex;
-  padding: 16px;
+  padding: 16px 16px 24px 16px;
   align-items: flex-start;
   gap: 16px;
   align-self: stretch;
@@ -127,13 +133,13 @@ p.bold {
   border-bottom: 1px solid transparent;
 }
 
-div.comment-action-buttons > .edit:hover {
+/* div.comment-action-buttons > .edit:hover {
   border-bottom: 1px solid var(--Iron-900);
 }
 
 div.comment-action-buttons > .delete:hover {
   border-bottom: 1px solid var(--Red-700);
-}
+} */
 
 p.small-edit-link, p.small-delete-link {
   font-weight: 600;
@@ -158,4 +164,5 @@ p.small-delete-link {
   align-items: center;
   gap: 16px;
   opacity: 0;
+  cursor: pointer;
 }

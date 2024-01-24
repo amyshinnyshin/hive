@@ -27,7 +27,8 @@ const CommentsSection = ({ applicationId, count }) => {
     fetchComments();
   }, [applicationId]);
 
-  const handleAddComment = async () => {
+  const handleAddComment = async (e) => {
+    e.preventDefault();
     try {
       const response = await axios.post(
         'http://localhost:8000/api/comments/',
@@ -113,7 +114,7 @@ const CommentsSection = ({ applicationId, count }) => {
           )}
         </div>
       </div>
-      <div>
+      <div className='comments-spacing'>
         {comments.map((comment) => (
           <Comments key={comment.id} comment={comment} onDelete={handleDeleteComment} onEdit={handleEditComment} />
         ))}

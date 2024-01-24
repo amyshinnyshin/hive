@@ -85,6 +85,7 @@ const Modal = ({ application, onClose }) => {
               <p>{application.description}</p>
             </div>
           </div>
+          <div className='line-break'></div>
           <CommentsSection applicationId={application.id} />
         </div>
       </div>

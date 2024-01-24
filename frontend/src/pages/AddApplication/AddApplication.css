@@ -59,12 +59,12 @@
 
 .form-group > div.right-section {
     grid-column: 9 / span 4;
-    padding-top: 16px;
+    padding-top: 18px;
 }
 
-.right-section > .comments-section {
+.right-section > .page-comments-section {
     margin-top: 16px;
-    padding: 16px 16px 24px 16px;
+    padding: 24px 16px 24px 16px;
     border: 1px solid var(--Iron-100);
     border-radius: 8px;
     min-height: 50%;

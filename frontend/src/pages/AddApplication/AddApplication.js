@@ -84,7 +84,7 @@ const AddApplication = () => {
                     <form onSubmit={handleSubmit} className='form-container'>
                         <div className='form'>
                             <Breadcrumb pageName='New'/>
-                            <h2> New Application</h2>
+                            <h1> New Application</h1>
                             
                             <div className='form-group'>
                             <div className='left-section'>
@@ -124,7 +124,7 @@ const AddApplication = () => {
                             <div className='right-section'>
                                 <Dropdown options={statusOptions} value={formData.status} onSelect={handleStatusChange} className='dropdown' />
 
-                                <div className='comments-section'>
+                                <div className='page-comments-section'>
                                     <h4>Comments</h4>
                                     
                                 </div>

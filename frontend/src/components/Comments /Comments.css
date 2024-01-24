@@ -1,0 +1,6 @@
+.created-comment-textbox-container.editing {
+ background-color: var(--Iron-25);
+    textarea {
+        height: 160px; 
+    }
+}

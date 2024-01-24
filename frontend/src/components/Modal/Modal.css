@@ -75,7 +75,11 @@
     gap: 16px;
     align-self: stretch;
     padding-bottom: 32px;
-    border-bottom: 1px solid var(--Iron-300);
+  }
+
+  .line-break {
+    border-top: solid 1px var(--Iron-200);
+    padding-bottom: 32px
   }
 
   

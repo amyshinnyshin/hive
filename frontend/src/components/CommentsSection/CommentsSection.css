@@ -3,8 +3,14 @@
     flex-direction: column;
     gap: 16px;
     width: 100%;
-    padding-top: 32px;
   }
+
+
+.comments-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
 
 .comment-textbox-container > .profile-container {
   height: 40px;
@@ -14,10 +20,18 @@
   align-items: center;
 }
 
+.comment-textbox-container.active {
+  border-radius: 8px;
+  background: var(--Iron-25);
+  .comment-input textarea {
+    height: 112px; 
+  }
+}
+
 div.profile {
   height: 32px;
   width: 32px;
-  background-color: var(--Iron-200);
+  background-color: #6f8fee ;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,6 +43,7 @@ div.profile {
 
 p.profile {
   font-family: 700;
+  color: white;
 }
 
 
@@ -38,15 +53,14 @@ p.profile {
   align-items: flex-start;
   gap: 16px;
   align-self: stretch;
-  border-radius: 8px;
-  background: var(--Iron-25);
+
 }
 
 .comment-input {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 12px;
   flex: 1 0 0;
 }
@@ -56,6 +70,7 @@ p.profile {
   justify-content: flex-end;
   align-items: flex-start;
   gap: 16px;
+  align-self: stretch;
 }
 
 .created-comment-textbox-container {
@@ -80,7 +95,7 @@ p.profile {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 12px;
 }
 
 .comment-header-container {
@@ -121,8 +136,9 @@ div.comment-action-buttons > .delete:hover {
 }
 
 p.small-edit-link, p.small-delete-link {
-  font-weight: 700;
-  
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
 }
 
 p.small-edit-link{
@@ -133,9 +149,13 @@ p.small-delete-link {
   color: var(--Red-700);
 }
 
+.line-small {
+  height: 16px;
+}
+
 .comment-action-buttons {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
   opacity: 0;
 }

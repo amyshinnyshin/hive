@@ -34,7 +34,7 @@ const DateInput = ({ label, name, value, onChange, placeholder }) => {
     );
 };
 
-const TextBox = ({ label, name, value, onChange, placeholder }) => {
+const TextBox = ({ label, name, value, onChange, placeholder, }) => {
     return (
       <label className='textbox'>
         {label}
@@ -49,13 +49,14 @@ const TextBox = ({ label, name, value, onChange, placeholder }) => {
     );
   };
 
-  const CommentTextBox = ({ name, value, onChange, placeholder }) => {
+  const CommentTextBox = ({ name, value, onChange,  placeholder, onClick }) => {
     return (
         <textarea 
           className='comment-textarea default'
           name={name}
           value={value}
           onChange={onChange}
+          onClick = {onClick}
           placeholder={placeholder}  
         />
     );

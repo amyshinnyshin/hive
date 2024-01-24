@@ -28,3 +28,4 @@ class Comment(models.Model):
     job_application = models.ForeignKey(JobApplication, on_delete = models.CASCADE)
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now=True)

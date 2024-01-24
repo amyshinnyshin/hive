@@ -9,6 +9,7 @@ import { DateInput, TextBox, TextInput } from '../../components/InputFields/Inpu
 import Dropdown from '../../components/Dropdown/Dropdown';
 import { PrimaryButton, SecondaryButton } from '../../components/Buttons/Buttons';
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
+import CommentsSection from '../../components/CommentsSection/CommentsSection';
 
 
 
@@ -25,21 +26,24 @@ const EditApplication = ( ) => {
         description: '',
     });
 
-
+    const [comments, setComments] = useState([]); // State to hold comments data
 
     useEffect(() => {
-
         const fetchAppDetails = async () => {
-            try {
-                const response = await axios.get(`http://localhost:8000/api/myapplications/${id}/`);
-                setFormData(response.data);
-            } catch (error) {
-                console.error('Error fetching application details:', error)
-            }
+          try {
+            const [appResponse, commentsResponse] = await Promise.all([
+              axios.get(`http://localhost:8000/api/myapplications/${id}/`),
+              axios.get(`http://localhost:8000/api/comments/?job_application=${id}`),
+            ]);
+    
+            setFormData(appResponse.data);
+            setComments(commentsResponse.data);
+          } catch (error) {
+            console.error('Error fetching application details:', error);
+          }
         };
         fetchAppDetails();
-    }, [id]);
-
+      }, [id]);
 
     const handleDelete = async () => {
         try {
@@ -113,7 +117,7 @@ const EditApplication = ( ) => {
                 <form onSubmit={handleSubmit} className='form-container'>
                         <div className='form'>
                             <Breadcrumb pageName='Edit'/>
-                            <h2>Edit Application</h2>
+                            <h1>Edit Application</h1>
                             <div className='form-group'>
                             <div className='left-section'>
                             <div className='container'>
@@ -152,8 +156,8 @@ const EditApplication = ( ) => {
                                 <Dropdown options={statusOptions} value={formData.status} onSelect={handleStatusChange} className='dropdown' />
                                 
 
-                                <div className='comments-section'>
-                                    <h4>Comments</h4>
+                                <div className='page-comments-section'>
+                                <CommentsSection applicationId={id} comments={comments} />
                                 </div>
                                 
 

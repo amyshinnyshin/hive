@@ -3,7 +3,7 @@ import React from 'react'
 import './Tags.css';
 
 
-const Tags = ({num}) => {
+const SmallTags = ({num}) => {
   return (
     <div className='tag'>
       <p className='small'>{num}</p>
@@ -11,4 +11,14 @@ const Tags = ({num}) => {
   )
 }
 
-export default Tags
+const DefaultTags = ({num}) => {
+  return (
+    <div className='tag'>
+      <p>{num}</p>
+    </div>
+  )
+}
+
+
+
+export { SmallTags, DefaultTags }

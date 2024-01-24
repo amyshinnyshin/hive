@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './Dropdown.css'; 
 
-const Dropdown = ({ options, onSelect }) => {
+const Dropdown = ({ options, defaultSelectedOption, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(defaultSelectedOption);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -58,4 +58,3 @@ const Dropdown = ({ options, onSelect }) => {
 };
 
 export default Dropdown;
-

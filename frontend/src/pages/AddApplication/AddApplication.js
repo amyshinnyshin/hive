@@ -10,81 +10,52 @@ import { PrimaryButton, SecondaryButton } from '../../components/Buttons/Buttons
 import Dropdown from '../../components/Dropdown/Dropdown';
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
-
-
 const AddApplication = () => {
     const navigate = useNavigate();
-    
-    const [formData, setFormData] = useState({
-    status: '',
-    company_name: '',
-    role: '',
-    date_applied: '',
-    description: '',
-    });
 
-    const [commentText, setCommentText] = useState('');
-    const [comments, setComments] = useState([]);
+    const [formData, setFormData] = useState({
+        status: '',
+        company_name: '',
+        role: '',
+        date_applied: '',
+        description: '',
+    });
 
     const handleChange = (e) => {
-    setFormData({
-        ...formData,
-        [e.target.name]: e.target.value,
-    });
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
     };
 
     const handleStatusChange = (selectedStatus) => {
         setFormData({
-          ...formData,
-          status: selectedStatus.value,
+            ...formData,
+            status: selectedStatus.value,
         });
     };
 
-
-    // Comments >>
-    const handleCommentChange = (e) => {
-        setCommentText(e.target.value);
-    };
-
-    const handleAddComment = () => {
-        const newComment = {
-            id: comments.length + 1, 
-            text: commentText, 
-        }
-    };
-
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         try {
-          
-          const response = await axios.post('http://localhost:8000/api/myapplications/', formData, {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          });
-    
-          if (response.status === 201) {
             
-            const newApplicationId = response.data.id;
-    
+            const response = await axios.post('http://localhost:8000/api/myapplications/', formData, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
             
-            const commentsWithApplicationId = comments.map(comment => ({
-              ...comment,
-              job_application: newApplicationId,
-            }));
-    
-           
-            await axios.post(`http://localhost:8000/api/job-applications/${newApplicationId}/comments/`, commentsWithApplicationId);
-    
-            
-            navigate('/myapplications');
-          }
+            if (response.status === 201) {
+                setFormData({ ...formData, id: response.data.id });
+                navigate('/myapplications');
+            }
         } catch (error) {
-          console.error('Error creating application:', error);
+            console.error('Error creating application:', error);
         }
-      };
+    };
 
     const statusOptions = [
         { value: 'applied', label: 'APPLIED', emoji: '✅'},
@@ -92,7 +63,7 @@ const AddApplication = () => {
         { value: 'rejected', label: 'REJECTED', emoji: '😩' },
         { value: 'deferred', label: 'DEFERRED', emoji: '👎' },
         { value: 'offered', label: 'OFFERED', emoji: '🎉' },
-      ];
+    ];
 
 
     return (
@@ -154,23 +125,8 @@ const AddApplication = () => {
                                 <Dropdown options={statusOptions} value={formData.status} onSelect={handleStatusChange} className='dropdown' />
 
                                 <div className='comments-section'>
-                                <h4>Comments</h4>
-                                    <div>
-                                    <textarea
-                                        value={commentText}
-                                        onChange={handleCommentChange}
-                                        placeholder="Add a comment..."
-                                    />
-                                    <button type="button" onClick={handleAddComment}>
-                                        Add Comment
-                                    </button>
-                                    </div>
-                                    {comments.map(comment => (
-                                    <div key={comment.id}>
-                                        <p>{comment.text}</p>
-                                        <p>Created at: {comment.created_at}</p>
-                                    </div>
-                                    ))}
+                                    <h4>Comments</h4>
+                                    
                                 </div>
                                 
 

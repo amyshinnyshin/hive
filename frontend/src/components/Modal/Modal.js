@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { CommentTextBox } from '../InputFields/InputFields';
@@ -7,9 +7,24 @@ import { CommentTextBox } from '../InputFields/InputFields';
 import './Modal.css';
 
 
-const Modal = ({ application, onClose, }) => {
+const Modal = ({ application, onClose }) => {
   const [notHovered, hovered] = useState(false);
-  const navigate = useNavigate()
+  const [commentText, setCommentText] = useState('');
+  const [comments, setComments] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8000/api/comments/?job_application=${application.id}`);
+        setComments(response.data);
+      } catch (error) {
+        console.error('Error fetching comments:', error);
+      }
+    };
+  
+    fetchComments();
+  }, [application.id]);
 
   const handleEdit = () => {
     navigate(`/myapplications/${application.id}/edit`);
@@ -19,17 +34,41 @@ const Modal = ({ application, onClose, }) => {
     try {
       await axios.delete(`http://localhost:8000/api/myapplications/${application.id}/`, {
         headers: {
-            'Content-Type': 'application/json',
+          'Content-Type': 'application/json',
         },
       });
 
       onClose();
-      window.location.reload(); 
+      window.location.reload();
     } catch (error) {
       console.error('Error deleting application:', error);
     }
   };
 
+  const handleAddComment = async () => {
+    try {
+      const response = await axios.post(
+        `http://localhost:8000/api/comments/`,
+        {
+          job_application: application.id,
+          text: commentText,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      // Update comments state with the new comment
+      setComments([...comments, response.data]);
+
+      // Clear the comment text
+      setCommentText('');
+    } catch (error) {
+      console.error('Error adding comment:', error);
+    }
+  };
 
   const handleHoverIn = () => {
     hovered(true);
@@ -42,6 +81,7 @@ const Modal = ({ application, onClose, }) => {
   if (!application) {
     return null;
   }
+
 
   return (
     <div className='overlay'>
@@ -101,6 +141,8 @@ const Modal = ({ application, onClose, }) => {
                 <p>{application.description}</p>
               </div>
             </div>
+
+            
             <div className='comments-section'>
               <h4>Comments</h4>
 
@@ -111,7 +153,19 @@ const Modal = ({ application, onClose, }) => {
                   </div>
                 </div>
                 <div className="comment-input">
-                  <CommentTextBox placeholder="Add a comment or note..."/>
+                  <CommentTextBox
+                      placeholder='Add a comment or note...'
+                      value={commentText}
+                      onChange={(e) => setCommentText(e.target.value)}
+                    />
+                    <button type='button' onClick={handleAddComment}>
+                      Add Comment
+                    </button>
+                    <ul>
+                      {comments.map((comment) => (
+                        <li key={comment.id}>{comment.text}</li>
+                      ))}
+                    </ul>
                 </div>
                 
               </div>

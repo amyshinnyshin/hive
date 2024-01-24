@@ -20,3 +20,9 @@ class JobApplicationDetail(generics.RetrieveUpdateDestroyAPIView):
 class CommentList(generics.ListCreateAPIView):
     queryset = Comment.objects.all() 
     serializer_class = CommentSerializer  
+
+
+# Application Detail View
+class CommentDetails(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Comment.objects.all() 
+    serializer_class = CommentSerializer

@@ -16,17 +16,25 @@ class JobApplicationDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 
-# Comment List View
-class CommentList(generics.ListCreateAPIView):
-    serializer_class = CommentSerializer  
+
     
-    def get_queryset(self):
-        job_application_id = self.request.query_params.get('job_application')
-        queryset = Comment.objects.filter(job_application=job_application_id)
-        return queryset
+# class CommentList(generics.ListCreateAPIView):
+#     queryset = Comment.objects.all()
+#     serializer_class = CommentSerializer
 
 
-# Application Detail View
 class CommentDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all() 
     serializer_class = CommentSerializer
+
+# # Comment List View
+class CommentList(generics.ListCreateAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+
+    def get_queryset(self):
+        job_application_id = self.kwargs.get('pk')  
+        if job_application_id:
+            return Comment.objects.filter(job_application=job_application_id)
+        else:
+            return Comment.objects.all()

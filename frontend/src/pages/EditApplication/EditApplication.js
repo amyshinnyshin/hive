@@ -163,7 +163,7 @@ const EditApplication = ( ) => {
                         <div className='edit-btm-button-container'>
                             <div className='delete-link' onClick={handleDelete}>
                                 <img src="/icons/delete-red-default.png" alt='icon' className='icon-default'></img>
-                                <p className='bold'>Delete</p>
+                                <p className='bold-red'>Delete</p>
                             </div>
                             <div className='btn-group'>
                                 <Link to={`/myapplications`} className='no-link-styling'>

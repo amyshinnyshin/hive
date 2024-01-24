@@ -1,0 +1,132 @@
+.comments-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    padding-top: 32px;
+  }
+
+.comment-textbox-container > .profile-container {
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div.profile {
+  height: 32px;
+  width: 32px;
+  background-color: var(--Iron-200);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+  border-radius: 32px;
+}
+
+p.profile {
+  font-family: 700;
+}
+
+
+.comment-textbox-container {
+  display: flex;
+  padding: 16px;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: var(--Iron-25);
+}
+
+.comment-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  flex: 1 0 0;
+}
+
+.comments-btn-group {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 16px;
+  height: 40px;
+}
+
+.created-comment-textbox-container {
+  display: flex;
+  padding: 16px;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  border-radius: 8px;
+}
+
+.created-comment {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.comment-header-container {
+  height: 32px;
+  display: flex;
+  padding: 4px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 0 0;
+  box-sizing: border-box;
+}
+
+.username-and-date {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+p.bold {
+  font-weight: 700;
+}
+
+.comment-action {
+  display: flex;
+  padding-bottom: 2px;
+  align-items: flex-start;
+  gap: 4px;
+  border-bottom: 1px solid transparent;
+}
+
+div.comment-action-buttons > .edit:hover {
+  border-bottom: 1px solid var(--Iron-900);
+}
+
+div.comment-action-buttons > .delete:hover {
+  border-bottom: 1px solid var(--Red-700);
+}
+
+p.small-edit-link, p.small-delete-link {
+  font-weight: 700;
+  
+}
+
+p.small-edit-link{
+  color: var(--Iron-900);
+}
+
+p.small-delete-link {
+  color: var(--Red-700);
+}
+
+.comment-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

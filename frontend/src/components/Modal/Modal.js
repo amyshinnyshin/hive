@@ -4,8 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import CommentsSection from '../CommentsSection/CommentsSection';
 
 import './Modal.css';
+import { DefaultTextTags } from '../Tags/Tags';
 
-const Modal = ({ application, onClose }) => {
+const Modal = ({ application, onClose, showDefaultTextTags }) => {
   const [notHovered, hovered] = useState(false);
   const navigate = useNavigate();
 
@@ -28,6 +29,15 @@ const Modal = ({ application, onClose }) => {
       console.error('Error deleting application:', error);
     }
   };
+
+  const statusOptions = {
+    applied: { label: 'APPLIED', emoji: '✅' },
+    interviews: { label: 'INTERVIEWS', emoji: '❓' },
+    rejected: { label: 'REJECTED', emoji: '😩' },
+    deferred: { label: 'DEFERRED', emoji: '👎' },
+    offered: { label: 'OFFERED', emoji: '🎉' },
+  };
+
 
   if (!application) {
     return null;
@@ -66,7 +76,11 @@ const Modal = ({ application, onClose }) => {
           <div className='application-section'>
             <div className='read-only'>
               <label>Status</label>
-              <p>{application.status}</p>
+              <DefaultTextTags
+              emoji={statusOptions[application.status].emoji}
+              text={statusOptions[application.status].label}
+              isVisible={true}
+              />
             </div>
             <div>
               <label>Company Name</label>

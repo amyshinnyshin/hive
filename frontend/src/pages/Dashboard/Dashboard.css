@@ -55,11 +55,11 @@
 }
 
 .link-default:hover {
-    border-bottom: 1px solid var(--Blue-500);
+    border-bottom: 1px solid var(--Magnolia-700);
 }
 
 .blue {
-    color: var(--Blue-500);
+    color: var(--Magnolia-700);
 }
 
 .card-body-section {

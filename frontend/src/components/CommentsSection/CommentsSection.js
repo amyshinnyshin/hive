@@ -8,7 +8,7 @@ import './CommentsSection.css';
 import { CommentTextBox } from '../InputFields/InputFields';
 import { SmallTags } from '../Tags/Tags';
 
-const CommentsSection = ({ applicationId, count }) => {
+const CommentsSection = ({ applicationId }) => {
   const [commentText, setCommentText] = useState('');
   const [comments, setComments] = useState([]);
   const [isInputFocused, setInputFocused] = useState(false);
@@ -86,7 +86,7 @@ const CommentsSection = ({ applicationId, count }) => {
     <div className="comments-section">
       <div className='comments-header'>
         <h4>Comments</h4>
-        <SmallTags num={comments.length} />
+        <SmallTags num={comments.length} isLightVersion={true}/>
       </div>
 
       <div className={`comment-textbox-container ${isInputFocused ? 'active' : ''}`}>

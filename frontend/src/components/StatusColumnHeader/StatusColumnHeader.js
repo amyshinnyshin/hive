@@ -13,7 +13,7 @@ const StatusColumnHeader = ({ emoji, statusName, count }) => {
         </div>
         <p>{statusName}</p>
       </div>
-      <SmallTags num={count} />
+      <SmallTags num={count} isLightVersion={false} />
     </div>
   );
 };

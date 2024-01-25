@@ -8,7 +8,7 @@ const Tabs = () => {
     <div className='tab-group' >
         <div className='tab active'>
             <p>All</p>
-            <SmallTags num="2" />
+            <SmallTags num="2" isLightVersion={true}/>
         </div>
         <TabItem status='Applied'/>
         <TabItem status='Interviews'/>

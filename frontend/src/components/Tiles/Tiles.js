@@ -3,8 +3,9 @@ import axios from 'axios';
 
 import './Tiles.css';
 import Modal from '../Modal/Modal';
+import { DefaultTextTags } from '../Tags/Tags';
 
-const Tiles = ({ status }) => {
+const Tiles = ({ status, showDefaultTextTags }) => {
   const [applications, setApplications] = useState([]);
   const [selectedApplication, setSelectedApplication] = useState(null);
   const [isModalOpen, setModalOpen] = useState(false);
@@ -26,11 +27,6 @@ const Tiles = ({ status }) => {
     fetchData();
   }, []);
 
-
-
-  
-
-
   const filterTiles = applications.filter(application => application.status === status);
 
   const handleOpenModal = (application) => {
@@ -51,6 +47,16 @@ const Tiles = ({ status }) => {
     return <p>Error: {error}</p>;
   }
 
+
+  
+  const statusOptions = {
+    applied: { label: 'APPLIED', emoji: '✅' },
+    interviews: { label: 'INTERVIEWS', emoji: '❓' },
+    rejected: { label: 'REJECTED', emoji: '😩' },
+    deferred: { label: 'DEFERRED', emoji: '👎' },
+    offered: { label: 'OFFERED', emoji: '🎉' },
+  };
+
   return (
     <div className='tile'>
       {filterTiles.map(application => (
@@ -58,6 +64,11 @@ const Tiles = ({ status }) => {
           <div className='top-section'>
             <h4>{application.company_name}</h4>
             <p>{application.role}</p>
+            <DefaultTextTags
+              emoji={statusOptions[application.status].emoji}
+              text={statusOptions[application.status].label}
+              isVisible={showDefaultTextTags} 
+            />
           </div>
 
           <div className='bottom-section'>

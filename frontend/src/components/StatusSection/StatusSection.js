@@ -34,23 +34,23 @@ const StatusSection = () => {
     <div className='status-section-grid'>
       <div className='status-column applied'>
         <StatusColumnHeader statusName="APPLIED" emoji="✅" count={counter('applied') || 0} />
-        <Tiles status='applied'/>
+        <Tiles status='applied'showDefaultTextTags={false}/>
       </div>
       <div className='status-column interviews'>
         <StatusColumnHeader statusName="INTERVIEWS" emoji="❓" count={counter('interviews') || 0}/>
-        <Tiles status='interviews' />
+        <Tiles status='interviews' showDefaultTextTags={false}/>
       </div>
       <div className='status-column rejected'>
         <StatusColumnHeader statusName="REJECTED" emoji="😩" count={counter('rejected') || 0}/>
-        <Tiles status='rejected'/>
+        <Tiles status='rejected' showDefaultTextTags={false}/>
       </div>
       <div className='status-column deferred'>
-        <StatusColumnHeader statusName="DEFERRED" emoji="👎" count={counter('deferred') || 0}/>
-        <Tiles status='deferred'/>
+        <StatusColumnHeader statusName="DEFERRED" emoji="👎" count={counter('deferred') || 0} />
+        <Tiles status='deferred' showDefaultTextTags={false}/>
       </div>
       <div className='status-column offered'>
         <StatusColumnHeader statusName="OFFERED" emoji="🎉" count={counter('offered') || 0}/>
-        <Tiles status='offered'/>
+        <Tiles status='offered' showDefaultTextTags={false}/>
       </div>
     </div>
   );

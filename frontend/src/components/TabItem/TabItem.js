@@ -6,7 +6,7 @@ const TabItem = ({ status }) => {
   return (
     <div className='tab'>
       <p>{status}</p>
-      <SmallTags num="2" />
+      <SmallTags num="2" isLightVersion={true} />
     </div>
   )
 }

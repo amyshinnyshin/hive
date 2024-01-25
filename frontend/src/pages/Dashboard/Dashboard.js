@@ -66,7 +66,7 @@ const Dashboard = () => {
                     </h4>
                     <Link to="/myapplications" className='link-default no-styling' > 
                       <p className='bold blue'>Manage Applications</p>
-                      <img src="/icons/arrow.png" alt="icon" className='icon-default'></img>
+                      <img src="/icons/arrow-purple.png" alt="icon" className='icon-default'></img>
                     </Link>
                   </div>
                   <div className='tab-container'>
@@ -74,11 +74,11 @@ const Dashboard = () => {
                   </div>
 
                   <div className='card-body-section'>
-                    <Tiles status='applied'/>
-                    <Tiles status='interviews'/>
-                    <Tiles status='rejected'/>
-                    <Tiles status='deferred'/>
-                    <Tiles status='offered'/>
+                    <Tiles status='applied' showDefaultTextTags={true}/>
+                    <Tiles status='interviews' showDefaultTextTags={true}/>
+                    <Tiles status='rejected' showDefaultTextTags={true}/>
+                    <Tiles status='deferred'showDefaultTextTags={true}/>
+                    <Tiles status='offered' showDefaultTextTags={true}/>
 
                   </div>
                   

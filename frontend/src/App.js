@@ -14,6 +14,8 @@ import Modal from './components/Modal/Modal';
 // CSS
 import './App.css';
 import './style.css';
+import Dashboard from './pages/Dashboard/Dashboard';
+import Resume from './pages/Resume/Resume';
 
 
 
@@ -29,6 +31,8 @@ const App = () => {
           <Route path="/myapplications/add" element={<AddApplication />} />
           <Route path="/myapplications/:id" element={<Modal />} />
           <Route path="/myapplications/:id/edit" element={<EditApplication />} />
+          <Route path= "/dashboard" element={<Dashboard />} />
+          <Route path= "/resume" element={<Resume />} />
         </Routes>
     </Router>
   );

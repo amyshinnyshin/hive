@@ -21,27 +21,31 @@ const MyApplications = () => {
       <div className='leftsidebar-container'>
           <LeftSidebar />
       </div>
+
       <div className='page-container'>
-        <div className='content-container'>
 
-          <div className='header-section'>
-            <h1>My Applications</h1>
+        <div className='page'>
+          <div className='content-container'>
 
-            <div className='button-group'>
-              <OutlineButton buttonText="End Job Search" showIcon={false} />
+            <div className='header-section'>
+              <h1>My Applications</h1>
 
-              <Link to={`/myapplications/add`}>
-                <PrimaryButton buttonText="Add" showIcon={true} icon="/icons/addwhite.png" />
-              </Link>
+              <div className='button-group'>
+                <OutlineButton buttonText="End Job Search" showIcon={false} />
+
+                <Link to={`/myapplications/add`}>
+                  <PrimaryButton buttonText="Add" showIcon={true} icon="/icons/addwhite.png" />
+                </Link>
+              </div>
             </div>
+            
+
+            <div className='status-section-container'>
+                <StatusSection />
+            </div>
+
+
           </div>
-          
-
-          <div className='status-section-container'>
-              <StatusSection />
-          </div>
-
-
         </div>
       </div>
     </div>

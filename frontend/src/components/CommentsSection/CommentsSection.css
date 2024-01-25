@@ -81,7 +81,7 @@ p.profile {
 
 .created-comment-textbox-container {
   display: flex;
-  padding: 16px 16px 24px 16px;
+  padding: 16px 16px 16px 16px;
   align-items: flex-start;
   gap: 16px;
   align-self: stretch;

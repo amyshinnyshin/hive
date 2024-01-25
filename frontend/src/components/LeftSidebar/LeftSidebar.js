@@ -28,13 +28,20 @@ const LeftSidebar = () => {
       <div className='top-section'>
         <div className='nav-item-group'>
           
-          <NavItem icon="/icons/dashboard.png" label="Dashboard" showIconAfter={false}/>
+          
+          <NavLink to='/dashboard' className={`no-styling ${isPathActive('/dashboard') ? 'active-nav' : ''}`}>
+            <NavItem icon="/icons/dashboard.png" label="Dashboard" showIconAfter={false}/>
+          </NavLink>
 
           <NavLink to='/myapplications' className={`no-styling ${isPathActive('/myapplications') ? 'active-nav' : ''}`}>
             <NavItem icon="/icons/myappplications.png" label="My Applications" showIconAfter={false} />
           </NavLink>
 
-          <NavItem icon="/icons/resume.png" label="Resume" showIconAfter={false}/>
+          
+          <NavLink to='/resume' className={`no-styling ${isPathActive('/resume') ? 'active-nav' : ''}`}>
+            <NavItem icon="/icons/resume.png" label="Resume" showIconAfter={false}/>
+          </NavLink>
+
           <NavItem icon="/icons/interviewprep.png" label="Interview Prep" showIconAfter={false}/>
         </div>
 

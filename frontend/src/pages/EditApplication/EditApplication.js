@@ -110,7 +110,7 @@ const EditApplication = ( ) => {
         <LeftSidebar />
         </div>
 
-        <div className='page-container'>
+        <div className='page'>
             <div className='form-page-container'>
                 <div className='breadcrumb'></div>
                 

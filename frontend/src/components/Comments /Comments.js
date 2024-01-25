@@ -48,14 +48,11 @@ const Comments = ({ comment, onDelete, onEdit }) => {
               <>
                 <div className="comment-action edit" onClick={handleEdit}>
                   <img src="/icons/edit.png" alt='icon' className='icon-default'></img>
-                  {/* <p className='small-edit-link'>Edit</p> */}
                 </div>
-                {/* <img src='/icons/line.png' alt="line" className='line-small'></img> */}
+
               </>
             )}
             <div className="comment-action delete" onClick={() => onDelete(comment.id)} >
-              {/* <img src="/icons/delete-grey-default.png" alt='icon' className='icon-default'></img>
-              <p className='small-delete-link'>Delete</p> */}
               <div
         
                 className='icon-default'

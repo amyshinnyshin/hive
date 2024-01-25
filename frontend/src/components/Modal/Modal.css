@@ -58,6 +58,10 @@
     height: 32px;
   }
 
+  .icon-button {
+    cursor: pointer;
+  }
+
   .icon-button:hover {
     border-radius: 40px;
     background-color: var(--Iron-50);

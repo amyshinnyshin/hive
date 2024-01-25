@@ -7,6 +7,7 @@
     color: var(--900);
     height: 40px;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .selected-option {

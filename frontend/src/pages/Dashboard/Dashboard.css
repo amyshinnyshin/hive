@@ -8,8 +8,135 @@
     box-sizing: border-box;
     overflow: hidden;
     padding: 32px;
+    gap: 40px;
+    flex-direction: column;
+    overflow-y: auto;
     /* flex: 1 0 0;
     align-self: stretch; */
     /* overflow: hidden; */
     /* flex-direction: column; */
+}
+
+.dashboard-content-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 32px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+}
+
+.dashboard-content-container > div.left-section {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / span 8;
+    gap: 32px 
+}
+
+.card-container {
+    border-radius: 16px;
+    border: 1px solid var(--Iron-200);
+}
+
+.card-header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 24px 24px 0px 24px;
+}
+
+.link-default {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--White);
+}
+
+.link-default:hover {
+    border-bottom: 1px solid var(--Blue-500);
+}
+
+.blue {
+    color: var(--Blue-500);
+}
+
+.card-body-section {
+    padding: 24px 24px 32px 24px;
+}
+
+.data-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+    gap: 16px;
+}
+
+.data-set {
+    width: 25%;
+}
+
+.tab-container {
+    display: flex;
+    margin-top: 24px;
+    padding: 0px 24px;
+    gap: 16px;
+    border-bottom: 1px solid var(--Iron-200);
+    overflow-x: scroll;
+}
+
+.dashboard-content-container > div.right-section {
+    display: flex;
+    flex-direction: column;
+    grid-column: 9 / span 4;
+    width: 100%;
+    height: 336px;
+
+}
+
+.profile-dashboard {
+    border: 1px solid var(--Iron-200);
+    box-sizing: border-box;
+    border-radius: 16px;
+
+}
+
+.dashboard-profile-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 48px 32px 32px 32px;
+}
+
+.user-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.dashboard-profile {
+    background-color: #6f8fee;
+    height: 96px;
+    width: 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 96px;
+}
+
+.dashboard-profile > h2 {
+    color: white;
+}
+
+.name-and-job {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }

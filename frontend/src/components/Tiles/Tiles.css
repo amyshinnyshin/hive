@@ -2,6 +2,12 @@
     width: 100%;
 }
 
+.tile-container > div.top-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
 .tile-container {
     display: flex;
     height: 160px;
@@ -16,6 +22,7 @@
     border: 1px solid var(--Iron-100);
     background: var(--White);
     box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
 }
 
 .tile-container:hover {

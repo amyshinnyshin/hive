@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import {  useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import './Tiles.css';
@@ -9,6 +8,8 @@ const Tiles = ({ status }) => {
   const [applications, setApplications] = useState([]);
   const [selectedApplication, setSelectedApplication] = useState(null);
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isLoading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,12 +17,19 @@ const Tiles = ({ status }) => {
         const response = await axios.get('/api/myapplications/');
         setApplications(response.data);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchData();
   }, []);
+
+
+
+  
+
 
   const filterTiles = applications.filter(application => application.status === status);
 
@@ -35,6 +43,13 @@ const Tiles = ({ status }) => {
     setModalOpen(false);
   };
 
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
   return (
     <div className='tile'>
@@ -43,7 +58,6 @@ const Tiles = ({ status }) => {
           <div className='top-section'>
             <h4>{application.company_name}</h4>
             <p>{application.role}</p>
-            {false && <p className='status'>{application.status}</p>}
           </div>
 
           <div className='bottom-section'>
@@ -51,7 +65,7 @@ const Tiles = ({ status }) => {
               <img src='/icons/comments.png' className='icon-small' alt='icon'></img>
               <p className='small'>2</p>
             </div>
-            <p className='small'>Applied {application.date_applied}</p>
+            <p className='small'>Applied: {application.date_applied}</p>
           </div>
         </div>
       ))}
@@ -64,6 +78,5 @@ const Tiles = ({ status }) => {
     </div>
   );
 };
-
 
 export default Tiles;

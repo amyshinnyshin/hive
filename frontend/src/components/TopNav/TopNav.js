@@ -14,7 +14,11 @@ const TopNav = () => {
         <IconNavItem icon="/icons/search.png" />
         <IconNavItem icon="/icons/notifications.png" />
         <IconNavItem icon="/icons/settings.png" />
-        <li>Profile</li>
+        <div className='nav-profile-container'>
+          <div className='profile'>
+            <p className='profile'>A</p>
+          </div>
+        </div>
       </div>
     </ul>
   )

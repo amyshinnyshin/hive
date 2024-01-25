@@ -14,8 +14,7 @@
   .modal-container {
     background-color: var(--White);
     width: 800px;
-    min-height: 400px;
-    max-height: 75vh;
+    height: 80vh;
     display: flex;
     padding: 24px 24px 32px 24px;
     flex-direction: column;

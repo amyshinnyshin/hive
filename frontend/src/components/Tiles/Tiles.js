@@ -3,25 +3,43 @@ import axios from 'axios';
 
 import './Tiles.css';
 import Modal from '../Modal/Modal';
-import { DefaultTextTags } from '../Tags/Tags';
+import { SmallTextTags } from '../Tags/Tags';
 
-const Tiles = ({ status, showDefaultTextTags }) => {
+const Tiles = ({ status, showDefaultTextTags, isBigTile }) => {
   const [applications, setApplications] = useState([]);
   const [selectedApplication, setSelectedApplication] = useState(null);
   const [isModalOpen, setModalOpen] = useState(false);
-  const [isLoading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  
+
+  const tileMarginName = isBigTile ? 'margin-16px' : 'margin-8px';
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get('/api/myapplications/');
-        setApplications(response.data);
+        const applicationsData = response.data;
+
+        const fetchCommentsForApplications = async () => {
+          const applicationsWithComments = await Promise.all(
+            applicationsData.map(async (application) => {
+              try {
+                const commentsResponse = await axios.get(`http://localhost:8000/api/comments/?job_application=${application.id}`);
+                const sortedComments = [...commentsResponse.data].reverse();
+                return { ...application, comments: sortedComments };
+              } catch (commentsError) {
+                console.error('Error fetching comments:', commentsError);
+                return { ...application, comments: [] }; // Handle error case
+              }
+            })
+          );
+
+          setApplications(applicationsWithComments);
+        };
+
+        fetchCommentsForApplications();
       } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
+        console.error('Error fetching applications:', error);
+      } 
     };
 
     fetchData();
@@ -39,16 +57,7 @@ const Tiles = ({ status, showDefaultTextTags }) => {
     setModalOpen(false);
   };
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
 
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
-
-
-  
   const statusOptions = {
     applied: { label: 'APPLIED', emoji: '✅' },
     interviews: { label: 'INTERVIEWS', emoji: '❓' },
@@ -60,11 +69,11 @@ const Tiles = ({ status, showDefaultTextTags }) => {
   return (
     <div className='tile'>
       {filterTiles.map(application => (
-        <div key={application.id} className='tile-container' onClick={() => handleOpenModal(application)}>
+        <div key={application.id} className={`tile-container ${tileMarginName}`} onClick={() => handleOpenModal(application)}>
           <div className='top-section'>
             <h4>{application.company_name}</h4>
             <p>{application.role}</p>
-            <DefaultTextTags
+            <SmallTextTags
               emoji={statusOptions[application.status].emoji}
               text={statusOptions[application.status].label}
               isVisible={showDefaultTextTags} 
@@ -74,7 +83,7 @@ const Tiles = ({ status, showDefaultTextTags }) => {
           <div className='bottom-section'>
             <div className='comments-container'>
               <img src='/icons/comments.png' className='icon-small' alt='icon'></img>
-              <p className='small'>2</p>
+              <p className='small'>{application.comments.length}</p>
             </div>
             <p className='small'>Applied: {application.date_applied}</p>
           </div>

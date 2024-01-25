@@ -39,6 +39,21 @@ const DefaultTextTags = ({ emoji, text, isVisible }) => {
   );
 };
 
+const SmallTextTags = ({ emoji, text, isVisible }) => {
+  return (
+    <div className={isVisible ? 'text-tag' : 'hidden-text-tag'}>
+      {isVisible && (
+        <>
+          <div className='emoji-tag-container'>
+            <p className='small'>{emoji}</p>
+          </div>
+          <p className='small'>{text}</p>
+        </>
+      )}
+    </div>
+  );
+};
 
 
-export { SmallTags, DefaultTags, DefaultTextTags }
+
+export { SmallTags, DefaultTags, DefaultTextTags, SmallTextTags }

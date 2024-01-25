@@ -36,7 +36,7 @@ const Dashboard = () => {
                     </h4>
                   </div>
 
-                  <div className='card-body-section'>
+                  <div className='app-card-body-section'>
                     <div className='data-group'>
                       <div className='data-set'>
                         <label>Interview Scheduled</label>
@@ -73,12 +73,12 @@ const Dashboard = () => {
                     <Tabs />
                   </div>
 
-                  <div className='card-body-section'>
-                    <Tiles status='applied' showDefaultTextTags={true}/>
-                    <Tiles status='interviews' showDefaultTextTags={true}/>
-                    <Tiles status='rejected' showDefaultTextTags={true}/>
-                    <Tiles status='deferred'showDefaultTextTags={true}/>
-                    <Tiles status='offered' showDefaultTextTags={true}/>
+                  <div className='app-card-body-section'>
+                    <Tiles status='applied' showDefaultTextTags={true} isBigTile={true}/>
+                    <Tiles status='interviews' showDefaultTextTags={true} isBigTile={true}/>
+                    <Tiles status='rejected' showDefaultTextTags={true} isBigTile={true}/>
+                    <Tiles status='deferred'showDefaultTextTags={true} isBigTile={true}/>
+                    <Tiles status='offered' showDefaultTextTags={true} isBigTile={true}/>
 
                   </div>
                   

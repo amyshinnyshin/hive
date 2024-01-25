@@ -126,7 +126,10 @@ const AddApplication = () => {
 
                                 <div className='page-comments-section'>
                                     <h4>Comments</h4>
-                                    
+                                    <div className='comments-empty-state'>
+                                        <h4>No comments yet</h4>
+                                        <p>Save application to add comments</p>
+                                    </div>
                                 </div>
                                 
 

@@ -66,6 +66,10 @@
     padding: 24px 24px 32px 24px;
 }
 
+.app-card-body-section {
+    padding: 24px 24px 16px 24px;
+}
+
 .data-group {
     display: flex;
     justify-content: space-between;

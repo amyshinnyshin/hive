@@ -1,14 +1,14 @@
-Hive App
+#Hive App
 
-### Project Description
-Hive app helps people organize and monitor their job search. It allows users to input details about each application, track their status, store documents, and gain insights for a more efficient and organized job search process. All in one place!
+## Project Description
+The Hive app helps people organize and monitor their job search. It allows users to input details about each application, track their status, store documents, and gain insights for a more efficient and organized job search process. All in one place!
 
 
-### Your tech stack (frontend, backend, database)
+## Your tech stack (frontend, backend, database)
 Django Rest Framework and React 
 
 
-### List of backend models and their properties
+## List of backend models and their properties
 **Application** 
 1. ApplicationID 
 2. Status
@@ -23,10 +23,9 @@ Django Rest Framework and React
 3. Date
 
 
-### User stories
-User Stories 
+## User stories
 
-Job Application 
+### Job Application 
 As a user, I want to be able to add job application details to my tracker by inputting the company name, role title, date applied, and description to maintain organized and detailed records of every job I applied for. (CREATE) 
 
 As a user, I want a clear and accessible overview of all my job applications so that I can select the specific application I want to review. (READ) 
@@ -36,8 +35,8 @@ As a user, I want to be able to update the status of my application to keep my p
 
 As a user, I want to be able to delete old or rejected applications so that I can maintain a clutter-free and organized job tracker. (DELETE) 
 
-Comments
-As a user, I want to be able to add, read, update and delete comments to my job application so I can document any relevant information or feedback received. (CRUD)
+### Comments
+As a user, I want to be able to add, read, update, and delete comments to my job application so I can document any relevant information or feedback received. (CRUD)
 
 
 ### Wireframes

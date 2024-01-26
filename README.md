@@ -1,4 +1,4 @@
-#Hive App
+# Hive App
 
 ## Project Description
 The Hive app helps people organize and monitor their job search. It allows users to input details about each application, track their status, store documents, and gain insights for a more efficient and organized job search process. All in one place!

@@ -23,7 +23,7 @@ const Tiles = ({ status, showDefaultTextTags, isBigTile }) => {
           const applicationsWithComments = await Promise.all(
             applicationsData.map(async (application) => {
               try {
-                const commentsResponse = await axios.get(`http://localhost:8000/api/comments/?job_application=${application.id}`);
+                const commentsResponse = await axios.get(`/api/comments/?job_application=${application.id}`);
                 const sortedComments = [...commentsResponse.data].reverse();
                 return { ...application, comments: sortedComments };
               } catch (commentsError) {

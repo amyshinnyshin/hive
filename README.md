@@ -39,5 +39,11 @@ As a user, I want to be able to delete old or rejected applications so that I ca
 As a user, I want to be able to add, read, update, and delete comments to my job application so I can document any relevant information or feedback received. (CRUD)
 
 
-### Wireframes
+## Wireframes
+**Low-Fi Wireframes**  
 <img width="1168" alt="Screen Shot 2024-01-10 at 9 00 19 PM" src="https://media.git.generalassemb.ly/user/50126/files/9675302b-8f04-4be1-96b1-7353eb8d1caa">
+
+**High-Fi Wireframes**
+![Screen Shot 2024-01-25 at 7 07 37 PM](https://github.com/amyshinnyshin/hive/assets/71723686/aeb34b78-c5c1-4f05-8210-33c21ccabfe9)
+
+

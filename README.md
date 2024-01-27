@@ -8,7 +8,7 @@ The Hive app helps people organize and monitor their job search. It allows users
 Django Rest Framework, SQL and React 
 
 
-## List of backend models and their properties
+## List of backend models 
 **Application** 
 1. ApplicationID 
 2. Status

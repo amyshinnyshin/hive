@@ -47,6 +47,8 @@ const Tiles = ({ status, showDefaultTextTags, isBigTile }) => {
 
   const filterTiles = applications.filter(application => application.status === status);
 
+  
+
   const handleOpenModal = (application) => {
     setSelectedApplication(application);
     setModalOpen(true);

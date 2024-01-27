@@ -16,6 +16,7 @@ import './App.css';
 import './style.css';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Resume from './pages/Resume/Resume';
+import InterviewPrep from './pages/InterviewPrep/InterviewPrep';
 
 
 
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/myapplications/:id/edit" element={<EditApplication />} />
           <Route path= "/dashboard" element={<Dashboard />} />
           <Route path= "/resume" element={<Resume />} />
+          <Route path= "/interviewprep" element={<InterviewPrep />} />
         </Routes>
     </Router>
   );

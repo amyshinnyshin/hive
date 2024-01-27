@@ -42,7 +42,11 @@ const LeftSidebar = () => {
             <NavItem icon="/icons/resume.png" label="Resume" showIconAfter={false}/>
           </NavLink>
 
-          <NavItem icon="/icons/interviewprep.png" label="Interview Prep" showIconAfter={false}/>
+          <NavLink to='/interviewprep' className={`no-styling ${isPathActive('/interviewprep') ? 'active-nav' : ''}`}>
+            <NavItem icon="/icons/interviewprep.png" label="Interview Prep" showIconAfter={false}/>
+          </NavLink>
+
+          
         </div>
 
             <ElevatedButton buttonText="Add" showIcon={true} icon="/icons/addpurple.png" onClick={handleAddClick} />

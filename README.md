@@ -38,6 +38,11 @@ As a user, I want to be able to delete old or rejected applications so that I ca
 ### Comments
 As a user, I want to be able to add, read, update, and delete comments to my job application so I can document any relevant information or feedback received. (CRUD)
 
+## MVP 
+- My Applications Page with CRUD functionality for Applications and Comments
+
+## Stretch Goal
+- Dashboard with an overview of My Applications
 
 ## Wireframes
 **Low-Fi Wireframes**  

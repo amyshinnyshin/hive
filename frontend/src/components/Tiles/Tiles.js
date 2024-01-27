@@ -28,7 +28,7 @@ const Tiles = ({ status, showDefaultTextTags, isBigTile }) => {
                 return { ...application, comments: sortedComments };
               } catch (commentsError) {
                 console.error('Error fetching comments:', commentsError);
-                return { ...application, comments: [] }; // Handle error case
+                return { ...application, comments: [] }; 
               }
             })
           );

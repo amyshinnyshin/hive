@@ -34,13 +34,13 @@ const Comments = ({ comment, onDelete, onEdit }) => {
           <div className='username-and-date'>
             <p className='bold'>Amy Shin</p>
             <p className='small'>
-              {new Date(comment.updated_at).toLocaleString('en-US', {
-                year: 'numeric',
+              {`${new Date(comment.updated_at).toLocaleString('en-US', {
                 month: 'short',
                 day: 'numeric',
+              })} at ${new Date(comment.updated_at).toLocaleString('en-US', {
                 hour: '2-digit',
                 minute: '2-digit',
-              })}
+              })}`}
             </p>
           </div>
           <div className='comment-action-buttons'>
